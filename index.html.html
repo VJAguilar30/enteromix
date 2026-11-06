@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Enteromix: ¿vacuna o terapia viral experimental?</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef3f7;--ink:#12263a;--card:#fff;--line:#cdd9e5;--teal:#0a7d5c;--rose:#c2415b;--amber:#a15c07;--soft:#e1eaf2;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c1722;--ink:#e6eef6;--card:#14253a;--line:#25405e;--teal:#3ddc97;--rose:#ff7a93;--amber:#f5b041;--soft:#1b3350;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0c1722;--ink:#e6eef6;--card:#14253a;--line:#25405e;--teal:#3ddc97;--rose:#ff7a93;--amber:#f5b041;--soft:#1b3350;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 "IBM Plex Sans",system-ui,sans-serif}
+h1,h2,h3,button,nav a{font-family:Sora,system-ui,sans-serif}
+h1{font-size:clamp(2rem,6vw,3.6rem);line-height:1.05;margin:0 0 .4em;font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(1.5rem,3.6vw,2.2rem);margin:0 0 .5em;line-height:1.15;font-weight:800}
+h3{margin:0 0 .3em;font-size:1.05rem}
+p{max-width:70ch;margin:0 0 1em}a{color:var(--teal)}
+header{display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:center;padding:clamp(28px,6vw,72px) clamp(16px,5vw,56px);max-width:1150px;margin:auto}
+@media(max-width:760px){header{grid-template-columns:1fr}}
+.tag{display:inline-block;border:1.5px solid var(--amber);color:var(--amber);padding:3px 12px;border-radius:999px;font-weight:600;font-size:.9rem;margin-bottom:14px}
+button{font-size:.95rem;font-weight:600;border:2px solid var(--teal);background:transparent;color:var(--teal);padding:9px 16px;border-radius:999px;cursor:pointer}
+button:hover,button.on{background:var(--teal);color:var(--bg)}
+button.main{background:var(--teal);color:var(--bg)}
+button:focus-visible,summary:focus-visible,.vc:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.row{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+nav{display:flex;gap:4px;flex-wrap:wrap;padding:10px clamp(16px,5vw,56px);border-block:1px solid var(--line);background:var(--card)}
+nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.9rem;padding:6px 12px;border-radius:999px}nav a:hover{background:var(--soft)}
+section{padding:clamp(36px,7vw,72px) clamp(16px,5vw,56px);max-width:1150px;margin:auto}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:18px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.card.k{border-top:5px solid var(--teal)}.card.n{border-top:5px solid var(--rose)}.card.w{border-top:5px solid var(--amber)}
+.panel{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--teal);border-radius:6px;padding:16px 20px;min-height:5.5em}
+#mech{display:block;width:100%;height:auto;aspect-ratio:960/420;border-radius:10px;background:#0f2238}
+.vc{text-align:left;cursor:pointer;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;color:var(--ink);font:inherit}
+.vc.on{border-color:var(--teal);box-shadow:0 0 0 2px var(--teal)}
+.vc b{display:flex;align-items:center;gap:8px;font-family:Sora,sans-serif}.vc i{width:14px;height:14px;border-radius:3px;display:inline-block}
+.tl{list-style:none;margin:20px 0;padding:0 0 0 22px;border-left:3px solid var(--line)}
+.tl li{position:relative;margin:0 0 18px;padding-left:10px}
+.tl li::before{content:"";position:absolute;left:-30px;top:6px;width:13px;height:13px;border-radius:50%;background:var(--teal);border:3px solid var(--bg)}
+.tl li.w::before{background:var(--amber)}.tl li b{font-family:Sora,sans-serif}
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;margin:10px 0;padding:12px 18px}
+summary{cursor:pointer;font-weight:600}
+.wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:560px;background:var(--card)}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top;font-size:.95rem}th{background:var(--soft);font-family:Sora,sans-serif}
+.q{margin:16px 0}.q button{display:block;margin:7px 0;text-align:left;border-radius:10px}
+.q button.ok{background:var(--teal);color:var(--bg)}.q button.bad{background:var(--rose);border-color:var(--rose);color:#fff}
+dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 18px}dt{font-weight:600}dd{margin:0}
+@media(max-width:600px){dl{grid-template-columns:1fr}}
+footer{padding:28px clamp(16px,5vw,56px);border-top:1px solid var(--line);font-size:.9rem;max-width:1150px;margin:auto}
+.ctl{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:14px 0}.ctl b{font-family:Sora,sans-serif}
+#body{display:block;width:100%;height:auto;aspect-ratio:960/400;border-radius:10px;background:#0f2238}
+input[type=range]{width:100%;accent-color:var(--teal)}
+.cal{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}.cal span{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 14px;font-family:Sora,sans-serif}
+.ex{margin:6px 0 0;font-size:.95rem;color:var(--teal)}
+#vj{display:block;width:100%;height:auto;aspect-ratio:2/1;border-radius:10px;background:#0f2238;cursor:pointer}
+.pt{cursor:pointer}.pt:hover,.pt.on{filter:drop-shadow(0 0 6px var(--amber))}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}@media(max-width:760px){.two{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+<div>
+<span class="tag">Fase I · sin datos revisados por pares · datos a nov. 2026</span>
+<h1>Enteromix: ¿vacuna contra el cáncer o terapia viral experimental?</h1>
+<p>Es una mezcla experimental de cuatro virus, desarrollada en Rusia, que se estudia en personas con tumores sólidos. Los titulares hablaron de «100 % de eficacia». Esta guía explica qué es, cómo se supone que actúa y qué se ha demostrado de verdad.</p>
+<div class="row"><button class="main" data-say="Enteromix es una mezcla experimental de cuatro virus, desarrollada en Rusia, que se estudia en personas con tumores sólidos. Todavía está en fase uno, y sus resultados no han sido publicados en revistas científicas revisadas por pares.">Escuchar resumen</button><button id="mute" aria-pressed="false">Sonido: activado</button></div>
+</div>
+<svg viewBox="0 0 300 300" role="img" aria-label="Ilustración de una partícula viral" style="width:100%;max-width:340px;justify-self:center">
+<defs><radialGradient id="g" cx="40%" cy="35%"><stop offset="0" stop-color="var(--teal)" stop-opacity=".9"/><stop offset="1" stop-color="var(--teal)" stop-opacity=".35"/></radialGradient></defs>
+<g stroke="var(--teal)" stroke-width="4"><path d="M150 20v40M150 240v40M20 150h40M240 150h40M58 58l28 28M214 214l28 28M242 58l-28 28M86 214l-28 28"/></g>
+<polygon points="150,60 224,105 224,195 150,240 76,195 76,105" fill="url(#g)" stroke="var(--teal)" stroke-width="5"/>
+<g stroke="var(--bg)" stroke-width="3" fill="none" opacity=".8"><path d="M150 60l0 90M76 105l74 45M224 105l-74 45M150 150l0 90M76 195l74-45M224 195l-74-45"/></g>
+<circle cx="150" cy="150" r="16" fill="var(--rose)"/>
+</svg>
+</header>
+<nav aria-label="Secciones"><a href="#resumen">Resumen</a><a href="#porque">¿Por qué?</a><a href="#que-es">¿Qué es?</a><a href="#estructura">Estructura</a><a href="#mecanismo">Mecanismo</a><a href="#viaje">Viaje completo</a><a href="#inyeccion">La inyección</a><a href="#inmune">Sistema inmune</a><a href="#virus">Los 4 virus</a><a href="#evidencia">Evidencia</a><a href="#mitos">Mitos y hechos</a><a href="#contexto">Contexto</a><a href="#quiz">Quiz</a><a href="#fuentes">Fuentes</a></nav>
+
+<section id="resumen">
+<h2>Lo esencial en 30 segundos</h2>
+<div class="cards">
+<div class="card k"><h3>Qué es</h3>Una mezcla de cuatro enterovirus vivos que buscan infectar y destruir células tumorales. Se clasifica como virus oncolítico, no como vacuna clásica.</div>
+<div class="card w"><h3>En qué punto está</h3>Estudio de fase I, que evalúa sobre todo seguridad y tolerabilidad. Se registró en ClinicalTrials.gov en mayo de 2026 (NCT07584668).</div>
+<div class="card n"><h3>Qué NO está demostrado</h3>Que cure el cáncer, que sea mejor que los tratamientos actuales o que esté disponible para el público. No hay publicaciones revisadas por pares.</div>
+</div>
+</section>
+
+<section id='porque'>
+<h2>¿Por qué se creó?</h2>
+<div class='cards'>
+<div class='card n'><h3>El problema</h3>El cáncer colorrectal es una de las principales causas de muerte por cáncer en el mundo: una revisión de 2025 cita más de 1,9 millones de casos nuevos y unas 935 000 muertes estimadas en 2024. Cuando hay metástasis o el tumor deja de responder, quedan pocas opciones.</div>
+<div class='card k'><h3>La idea</h3>Algunos virus infectan y destruyen las células tumorales con más facilidad que las sanas. A estas terapias se les llama virus oncolíticos; el primero aprobado por la FDA fue T-VEC, en 2015.</div>
+<div class='card w'><h3>La apuesta de Enteromix</h3>Sus desarrolladores combinan cuatro enterovirus con receptores distintos para alcanzar a las células de un mismo tumor, que no son todas iguales. Esta hipótesis aún no tiene datos publicados revisados por pares.</div>
+</div>
+<h3>¿Qué contiene: ARN o ARNm?</h3>
+<div class='row' id='cmp'></div>
+<div class='panel' id='cmpp' aria-live='polite'></div>
+</section>
+
+<section id="que-es">
+<h2>¿Qué es Enteromix?</h2>
+<p>Enteromix es una inmunoterapia experimental en desarrollo en el Centro Nacional de Investigación Médica de Radiología (Ministerio de Salud de Rusia), junto con el Instituto Engelhardt de Biología Molecular. Según sus desarrolladores, combina cuatro virus vivos que se administran por vía intravenosa y cuyo objetivo inicial fue el cáncer colorrectal.</p>
+<p>Se le llama «vacuna» en los medios, pero no encaja con el sentido habitual del término. Una vacuna clásica entrena al sistema inmune antes de la enfermedad. Aquí los virus actúan directamente sobre el tumor y, de forma secundaria, despiertan la respuesta inmune. Algunos medios también lo describieron como vacuna de ARNm; según los desarrolladores, no usa tecnología de ARNm.</p>
+<div class="wrap"><table>
+<tr><th></th><th>Vacuna clásica</th><th>Vacuna de ARNm contra el cáncer</th><th>Virus oncolítico (Enteromix)</th></tr>
+<tr><td>Qué administra</td><td>Antígeno o microbio atenuado</td><td>Instrucciones (ARNm) para producir antígenos tumorales</td><td>Virus vivos capaces de replicarse</td></tr>
+<tr><td>Cómo actúa</td><td>Prepara la inmunidad antes de la infección</td><td>Enseña al sistema inmune a reconocer el tumor</td><td>Destruye células tumorales y libera antígenos</td></tr>
+</table></div>
+<div class="row"><button data-say="Se le llama vacuna en los medios, pero no encaja con el sentido habitual. Los virus actúan directamente sobre el tumor y, de forma secundaria, despiertan la respuesta inmune.">Escuchar</button></div>
+</section>
+
+<section id='estructura'>
+<h2>Estructura de un virus de Enteromix</h2>
+<p>Los cuatro virus son enterovirus y comparten la misma arquitectura. Toca cada parte del esquema (es una versión simplificada).</p>
+<div class='two'>
+<svg viewBox='0 0 400 360' role='img' aria-label='Esquema de un enterovirus' style='width:100%;max-width:460px;justify-self:center'>
+<g class='pt' data-p='capside' tabindex='0'><polygon points='200,20 340,100 340,260 200,340 60,260 60,100' fill='var(--soft)' stroke='var(--teal)' stroke-width='6'/><path d='M200 20V180M60 100L200 180M340 100L200 180M60 260L200 180M340 260L200 180M200 340V180' stroke='var(--line)' stroke-width='2' fill='none'/></g>
+<g class='pt' data-p='vp' tabindex='0'><circle cx='150' cy='95' r='13' fill='#3ddc97'/><circle cx='250' cy='95' r='13' fill='#f5b041'/><circle cx='200' cy='135' r='13' fill='#6ec1ff'/></g>
+<g class='pt' data-p='canon' tabindex='0'><path d='M340 145L316 180L340 215' fill='none' stroke='var(--amber)' stroke-width='6'/></g>
+<g class='pt' data-p='vp4' tabindex='0'><circle cx='200' cy='200' r='12' fill='var(--rose)'/></g>
+<g class='pt' data-p='arn' tabindex='0'><path d='M110 262C140 212 170 300 200 262S260 222 290 262' fill='none' stroke='var(--rose)' stroke-width='5'/></g>
+<g class='pt' data-p='vpg' tabindex='0'><circle cx='108' cy='262' r='9' fill='var(--amber)'/></g>
+<g class='pt' data-p='ires' tabindex='0'><path d='M290 262c24-34 44 8 20 20' fill='none' stroke='var(--teal)' stroke-width='5'/></g>
+</svg>
+<div><div class='row' id='pch'></div><div class='panel' id='ppn' aria-live='polite'>Elige una parte para ver qué hace.</div></div>
+</div>
+</section>
+
+<section id="mecanismo">
+<h2>Cómo se supone que actúa</h2>
+<p>Este es el mecanismo propuesto para los virus oncolíticos en general. Para Enteromix específicamente, falta evidencia publicada que lo confirme.</p>
+<canvas id="mech" width="960" height="420" role="img" aria-label="Animación del mecanismo de un virus oncolítico"></canvas>
+<div class="row" id="stg"></div>
+<div class="panel" id="stxt" aria-live="polite"></div>
+</section>
+
+<section id='viaje'>
+<h2>Del brazo al tumor: el viaje completo</h2>
+<p>Sigue todo el proceso en 7 etapas: toca el esquema para avanzar, usa los botones o activa «Auto» con narración. Cambia al modo de comparación para ver en qué se diferencia de una vacuna de ARNm, desde la entrada a la célula.</p>
+<canvas id='vj' width='960' height='480' role='img' aria-label='Animación del viaje del virus desde el brazo hasta el tumor y la lectura de su ARN'></canvas>
+<div class='row' id='vch'></div>
+<div class='row'><button id='vprev'>‹ Anterior</button><button class='main' id='vnext'>Siguiente ›</button><button id='vauto'>▶ Auto</button><button id='vsay'>🔊 Escuchar</button><button id='vm0' class='on'>Enteromix (virus con ARN)</button><button id='vm1'>Comparar con vacuna de ARNm</button></div>
+<div class='panel' id='vp' aria-live='polite'></div>
+</section>
+
+<section id="inyeccion">
+<h2>La inyección: vías, dosis y esquemas</h2>
+<p>Estos esquemas están tomados del registro del ensayo de fase I. Elige vía, esquema y dosis, pulsa «Inyectar» y mira el recorrido del virus. La animación es una ilustración conceptual: cuánto virus llega realmente al tumor no se conoce para Enteromix.</p>
+<div class="ctl"><div><b>Vía</b><div class="row" id="cv"></div></div><div><b>Esquema</b><div class="row" id="ce"></div></div><div><b>Dosis (PFU/kg)</b><div class="row" id="cd"></div></div></div>
+<canvas id="body" width="960" height="400" role="img" aria-label="Recorrido ilustrativo del virus desde el sitio de inyección hasta el tumor"></canvas>
+<div class="row"><button class="main" id="shoot">💉 Inyectar</button></div>
+<div class="panel" id="itxt" aria-live="polite"></div>
+<div id="cal"></div>
+<h3 style="margin-top:28px">Simulador de escalada de dosis 3+3</h3>
+<p>Así se decide qué dosis es segura en un estudio de fase I. Tú eres el comité: indica cuántos pacientes tuvieron una toxicidad limitante de dosis (TLD), es decir, un efecto adverso tan serio que impide subir la dosis.</p>
+<div class="panel" id="s33"></div>
+</section>
+
+<section id="inmune">
+<h2>¿Quién los reconoce? El sistema inmune frente al virus</h2>
+<p>Al entrar al cuerpo, el virus se encuentra con varias capas de defensa. Avanza en el tiempo con el control y toca cada actor. Los tiempos son aproximados y describen virus oncolíticos en general, no mediciones de Enteromix.</p>
+<input type="range" id="tl" min="0" max="3" value="0" aria-label="Tiempo después de la inyección">
+<div class="row" id="tlb"></div>
+<div class="cards" id="actors"></div>
+<div class="panel" id="atxt" aria-live="polite"></div>
+<h3 style="margin-top:28px">Misión: identifica al reconocedor</h3>
+<div id="mis"></div>
+<div class="panel" id="mscore" aria-live="polite">Responde las 5 preguntas.</div>
+</section>
+
+<section id="virus">
+<h2>Los cuatro virus que lo componen</h2>
+<p>Pertenecen al género Enterovirus. Esta es la composición descrita por los desarrolladores; las secuencias genéticas completas no estaban disponibles en bases públicas hasta donde se ha podido verificar. Toca cada tarjeta.</p>
+<div class="cards" id="vcs"></div>
+<div class="panel" id="vtxt" aria-live="polite">Elige un virus para ver sus características.</div>
+</section>
+
+<section id="evidencia">
+<h2>Qué evidencia existe</h2>
+<ul class="tl">
+<li><b>Nov. 2024:</b> registro del ensayo EM-I-2024 en el sistema ruso de ensayos clínicos.</li>
+<li><b>Dic. 2024:</b> el centro desarrollador anuncia el inicio del reclutamiento de pacientes.</li>
+<li><b>Sept. 2025:</b> se viralizan titulares de «100 % de eficacia». Snopes, AFP y otros verificadores los califican de exagerados o engañosos.</li>
+<li class="w"><b>Cifras circulantes:</b> reducción tumoral de 60–80 % y 48 pacientes. Provienen de declaraciones y notas de prensa, no de un artículo revisado por pares, y los medios las atribuyen a veces a estudios preclínicos y otras a la fase I.</li>
+<li><b>May. 2026:</b> aparece en ClinicalTrials.gov un estudio de fase I (NCT07584668), abierto, de un solo centro, con diseño de escalada de dosis 3+3, para evaluar seguridad, tolerabilidad y farmacocinética en tumores sólidos avanzados.</li>
+<li class="w"><b>Pendiente:</b> la fecha estimada de finalización primaria que se reporta es diciembre de 2026, y después harían falta fases II y III con grupo de comparación.</li>
+</ul>
+<div class="card w"><h3>Por qué importa la revisión por pares</h3>Sin datos publicados, otros científicos no pueden evaluar los métodos ni repetir los resultados. Tampoco se pueden comprobar la identidad genética de los virus, su estabilidad ni su eliminación por el organismo, que los reguladores exigen para virus replicantes.</div>
+</section>
+
+<section id="mitos">
+<h2>Mitos y hechos</h2>
+<details><summary>«Tiene 100 % de eficacia»</summary><p>La cifra proviene de declaraciones oficiales. Una fase I mide sobre todo seguridad, con pocos pacientes y sin grupo control. Una «respuesta inmune del 100 %» tampoco equivale a «curación del 100 %».</p></details>
+<details><summary>«Es una vacuna de ARNm»</summary><p>Según los desarrolladores, no usa ARNm: son virus vivos. La confusión parece venir de mezclarlo con otros programas rusos de vacunas personalizadas de ARNm.</p></details>
+<details><summary>«Ya está aprobada y se puede comprar»</summary><p>Tener autorización en Rusia para hacer un ensayo no es una aprobación de la FDA ni de la EMA. Hoy solo se administra dentro de un estudio clínico.</p></details>
+<details><summary>«Cura el cáncer»</summary><p>No hay evidencia publicada que lo demuestre. Si tú o alguien cercano tiene cáncer, lo apropiado es seguir el tratamiento indicado por su equipo médico.</p></details>
+<details><summary>«Es peligrosa porque usa virus»</summary><p>Los virus oncolíticos se estudian desde hace décadas y varios están aprobados. Aun así, que los datos de seguridad no estén publicados impide evaluarlo de forma independiente.</p></details>
+</section>
+
+<section id="contexto">
+<h2>Contexto: otros virus oncolíticos</h2>
+<div class="wrap"><table>
+<tr><th>Terapia</th><th>Virus</th><th>Situación</th></tr>
+<tr><td>T-VEC (Imlygic)</td><td>Herpes simple modificado</td><td>Aprobada por la FDA en 2015 para melanoma</td></tr>
+<tr><td>V937</td><td>Coxsackievirus A21</td><td>Estudiado en fases I–II (melanoma, vejiga, tumores sólidos)</td></tr>
+<tr><td>PVSRIPO</td><td>Poliovirus Sabin modificado</td><td>Fase I en glioblastoma; seguridad favorable en esos estudios</td></tr>
+<tr><td>Rigvir</td><td>ECHO-7</td><td>Registro revocado en Letonia en 2019 por discrepancias en el contenido viral</td></tr>
+<tr><td>Enteromix</td><td>Mezcla de 4 enterovirus</td><td>Fase I; sin publicaciones revisadas por pares</td></tr>
+</table></div>
+<h3 style="margin-top:24px">Glosario</h3>
+<dl>
+<dt>Oncolítico</dt><dd>Que destruye células tumorales (lisis).</dd>
+<dt>Enterovirus</dt><dd>Virus de ARN pequeños sin envoltura (familia Picornaviridae).</dd>
+<dt>Fase I</dt><dd>Primer estudio en personas: seguridad, dosis y tolerabilidad.</dd>
+<dt>Farmacocinética</dt><dd>Qué hace el organismo con el medicamento con el tiempo.</dd>
+<dt>Revisión por pares</dt><dd>Evaluación de un estudio por expertos independientes antes de publicarse.</dd>
+</dl>
+</section>
+
+<section id="quiz">
+<h2>Ponte a prueba</h2>
+<div id="qs"></div>
+<div class="panel" id="score" aria-live="polite">Responde las 5 preguntas.</div>
+</section>
+
+<section id="fuentes">
+<h2>Fuentes consultadas</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/EnteroMix" target="_blank" rel="noopener">EnteroMix, resumen enciclopédico con referencias (Wikipedia)</a></li>
+<li><a href="https://clinicaltrials.gov/study/NCT07584668" target="_blank" rel="noopener">Registro del ensayo NCT07584668 (ClinicalTrials.gov)</a></li>
+<li><a href="https://www.snopes.com//fact-check/russia-enteromix-mrna-cancer-vaccine/" target="_blank" rel="noopener">Snopes: verificación sobre Enteromix</a></li>
+<li><a href="https://factcheck.afp.com/doc.afp.com.76UX8KE" target="_blank" rel="noopener">AFP Fact Check: afirmaciones exageradas sobre Enteromix</a></li>
+<li><a href="https://www.newsweek.com/russia-cancer-vaccine-enteromix-claims-trials-2126451" target="_blank" rel="noopener">Newsweek: qué saber sobre Enteromix</a></li>
+<li><a href="https://zenodo.org/records/17772545" target="_blank" rel="noopener">Análisis de bioseguridad y transparencia (Zenodo, no revisado por pares)</a></li>
+</ul>
+</section>
+<footer>Recurso educativo, no es consejo médico. Información verificada a noviembre de 2026; el estado de la investigación puede cambiar, consulta las fuentes.</footer>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+let muted=false,AC;
+function sfx(f=440,d=.1){if(muted)return;try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();const o=AC.createOscillator(),g=AC.createGain(),n=AC.currentTime;o.frequency.setValueAtTime(f,n);o.frequency.exponentialRampToValueAtTime(f*1.6,n+d);g.gain.setValueAtTime(.1,n);g.gain.exponentialRampToValueAtTime(.001,n+d);o.connect(g);g.connect(AC.destination);o.start();o.stop(n+d)}catch(e){}}
+function say(t){if(muted||!('speechSynthesis' in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='es-ES';const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('es'));if(v)u.voice=v;u.rate=.95;speechSynthesis.speak(u)}
+$$('[data-say]').forEach(b=>b.onclick=()=>{sfx(500);say(b.dataset.say)});
+$('#mute').onclick=e=>{muted=!muted;if(muted&&window.speechSynthesis)speechSynthesis.cancel();e.target.textContent='Sonido: '+(muted?'silenciado':'activado');e.target.setAttribute('aria-pressed',muted)};
+
+/* Mecanismo animado */
+const mc=$('#mech'),m=mc.getContext('2d'),VC=['#3ddc97','#f5b041','#6ec1ff','#c792ff'];
+const TU=[[690,120],[800,210],[690,290],[810,330]],HE=[[250,330],[400,360],[540,340]];
+const STG=[['1. Inyección','Los virus se administran por vía intravenosa y viajan por la sangre. En el estudio registrado también se prevé la vía intraarterial, directa al tumor.'],['2. Infección selectiva','Los virus se unen a receptores de la superficie celular (ICAM-1, CD55, CD155). Algunos tumores tienen más cantidad de estos receptores, y eso favorecería la infección selectiva.'],['3. Replicación y lisis','Dentro de la célula tumoral los virus se multiplican hasta que la célula se rompe y libera nuevos virus, y también restos tumorales.'],['4. Respuesta inmune','Los restos tumorales alertan al sistema inmune y los linfocitos T atacan las células tumorales restantes. Este efecto es el que daría su carácter de «vacuna».']];
+let ms=0,mt=0,ml=0;
+function vir(x,y,r,c){m.fillStyle=c;m.beginPath();for(let i=0;i<6;i++){const a=i*Math.PI/3+.3;m.lineTo(x+Math.cos(a)*r,y+Math.sin(a)*r)}m.closePath();m.fill();m.strokeStyle='rgba(255,255,255,.7)';m.lineWidth=1;m.stroke()}
+function cel(x,y,r,c,a=1){m.globalAlpha=a;m.fillStyle=c;m.beginPath();m.arc(x,y,Math.max(r,2),0,6.283);m.fill();m.fillStyle='rgba(0,0,0,.28)';m.beginPath();m.arc(x+r*.15,y,r*.38,0,6.283);m.fill();m.globalAlpha=1}
+function lab(s,x,y,c='#e6eef6'){m.font='600 20px Sora,system-ui,sans-serif';m.fillStyle=c;m.textAlign='left';m.fillText(s,x,y)}
+function draw(t){m.clearRect(0,0,960,420);
+if(ms===0){m.fillStyle='#1b3350';m.fillRect(0,170,560,90);for(let i=0;i<16;i++)vir(((t*70+i*55)%620)-20,190+(i*23)%60,8,VC[i%4])}
+HE.forEach(h=>cel(h[0],h[1],26,'#6f8aa6'));
+TU.forEach((c,k)=>{let r=44,a=1;
+ if(ms===2&&k===0){r=44+Math.min(t,4)*4;if(t>4)a=Math.max(0,1-(t-4)/2)}
+ if(ms===3){r=44*(1-Math.min(t/8,1)*.6)}
+ cel(c[0],c[1],r,'#c2415b',a)});
+if(ms===1){TU.forEach((c,k)=>{for(let i=0;i<6;i++){const an=i*1.05+t*.2;vir(c[0]+Math.cos(an)*54,c[1]+Math.sin(an)*54,7,VC[(i+k)%4])}});
+ HE.forEach((h,k)=>{for(let i=0;i<4;i++){const d=34+((t*18+i*22)%60),an=i*1.6+k;m.globalAlpha=1-(d-34)/60;vir(h[0]+Math.cos(an)*d,h[1]+Math.sin(an)*d,6,VC[i]);m.globalAlpha=1}});
+ lab('Células sanas: pocos receptores',150,390,'#9fb4c9');lab('Tumor',620,60,'#ff7a93')}
+if(ms===2){const c=TU[0];if(t<4){for(let i=0;i<Math.floor(t*5);i++){const an=i*2.4;vir(c[0]+Math.cos(an)*(i%3)*10,c[1]+Math.sin(an)*(i%4)*8,5,VC[i%4])}}else{const p=(t-4)/4;for(let i=0;i<20;i++){const an=i*.31;vir(c[0]+Math.cos(an)*p*140,c[1]+Math.sin(an)*p*140,6,VC[i%4])}}
+ lab(t<4?'Replicación viral':'Lisis y liberación',560,40,'#f5b041')}
+if(ms===3){for(let i=0;i<7;i++){const c=TU[i%4],p=Math.min(1,(t*.18+i*.05)),x=40+(c[0]-70-40)*p,y=60+i*45+(c[1]-60-i*45)*p;m.fillStyle='#e6eef6';m.beginPath();m.arc(x,y,11,0,6.283);m.fill();m.fillStyle='#3ddc97';m.beginPath();m.arc(x,y,6,0,6.283);m.fill()}lab('Linfocitos T',40,40,'#3ddc97')}}
+function stg(i){ms=i;mt=0;$$('#stg button').forEach((b,j)=>b.classList.toggle('on',j===i));$('#stxt').innerHTML='<h3>'+STG[i][0]+'</h3>'+STG[i][1];sfx(380+i*80)}
+$('#stg').innerHTML=STG.map((s,i)=>'<button>'+s[0]+'</button>').join('')+'<button data-say="">Escuchar etapa</button>';
+$$('#stg button').forEach((b,i)=>b.onclick=()=>{if(i<4)stg(i);else say(STG[ms][0]+'. '+STG[ms][1])});
+stg(0);
+function loop(ts){mt=(mt+(ts-ml)/1000)%8;ml=ts;draw(mt);requestAnimationFrame(loop)}requestAnimationFrame(loop);
+
+/* Los 4 virus */
+const VR=[['Coxsackievirus A21 (CVA21)','Enterovirus A','Usa los receptores ICAM-1 y DAF/CD55, que están aumentados en varios tumores sólidos. Como V937 se ha estudiado en ensayos de fase I–II en otros países, pero la cepa de Enteromix no se ha comparado públicamente con ella.'],['Echovirus 7 (ECHO-7)','Enterovirus B','Se une al receptor DAF/CD55. Otro virus de esta especie fue la base de Rigvir en Letonia, cuyo registro se revocó en 2019.'],['Enterovirus B75 (EV-B75)','Enterovirus B','Pertenece al mismo grupo filogenético que los echovirus. Hay poca información pública sobre su uso como oncolítico.'],['PV-Russo','Enterovirus C','Poliovirus modificado a partir de la cepa vacunal Sabin, con un elemento de rinovirus (IRES) para reducir su neurovirulencia. Entra por el receptor CD155 y es conceptualmente similar a PVSRIPO.']];
+$('#vcs').innerHTML=VR.map((v,i)=>'<button class="vc" data-i="'+i+'"><b><i style="background:'+VC[i]+'"></i>'+v[0]+'</b>'+v[1]+'</button>').join('');
+$$('.vc').forEach(b=>b.onclick=()=>{const v=VR[b.dataset.i];$$('.vc').forEach(x=>x.classList.remove('on'));b.classList.add('on');$('#vtxt').innerHTML='<h3>'+v[0]+'</h3>'+v[2];sfx(420);say(v[0]+'. '+v[2])});
+
+/* Porque + estructura */
+const CP=[['Enteromix (según sus desarrolladores)','Contiene virus completos, vivos y capaces de replicarse: una cápside de proteína y un genoma de ARN. Ese ARN actúa como mensajero al entrar a la célula, pero además se copia. No es ARNm formulado, y por eso no es una vacuna de ARNm.'],['Vacuna de ARNm (comparación)','Contiene ARN mensajero sintético dentro de nanopartículas de lípidos. En la célula se lee para producir una proteína y luego se degrada. No se copia y no hay virus.']];
+$('#cmp').innerHTML=CP.map(c=>`<button>${c[0]}</button>`).join('');
+function cmp(i){$$('#cmp button').forEach((x,j)=>x.classList.toggle('on',j===i));$('#cmpp').innerHTML=`<h3>${CP[i][0]}</h3>${CP[i][1]}<br><br>La confusión circula porque el ARN del virus se comporta como un mensajero, pero Enteromix no es ARNm formulado.`}
+$$('#cmp button').forEach((x,i)=>x.onclick=()=>{cmp(i);sfx(420);say(CP[i][1])});cmp(0);
+const PD={capside:['Cápside','Cubierta de proteína con forma de icosaedro, de unos 30 nanómetros. No tiene envoltura de lípidos, lo que la hace resistente al ácido del estómago (de ahí el nombre entero-virus). Está formada por 60 copias de cuatro proteínas: VP1, VP2, VP3 y VP4.'],vp:['VP1, VP2 y VP3','Quedan expuestas en la superficie. Determinan a qué receptor se une el virus y son lo que reconocen los anticuerpos.'],vp4:['VP4','Proteína interna, bajo la cápside. Ayuda a que el ARN salga al citoplasma cuando el virus entra a la célula.'],canon:['Zona de unión al receptor','Región de la superficie que reconoce el receptor celular (ICAM-1, CD55 o CD155, según el virus). En muchos enterovirus es una hendidura llamada cañón.'],arn:['Genoma de ARN','Una sola hebra de ARN de polaridad positiva, de unos 7 500 nucleótidos. Tiene el mismo sentido que un ARN mensajero, por eso los ribosomas pueden leerla directamente y producir una poliproteína que enzimas del virus cortan en proteínas.'],vpg:['VPg','Pequeña proteína unida al extremo 5′ del ARN. Sirve de cebador para que la enzima copiadora empiece a fabricar copias del genoma.'],ires:['IRES','Secuencia del extremo 5′ que permite al ribosoma engancharse al ARN sin necesitar «cap». En PV-Russo, el IRES incluye elementos de rinovirus, una modificación que según los desarrolladores busca reducir su capacidad de dañar neuronas.']};
+function pt(k){$$('.pt').forEach(g=>g.classList.toggle('on',g.dataset.p===k));$$('#pch button').forEach(x=>x.classList.toggle('on',x.dataset.p===k));$('#ppn').innerHTML=`<h3>${PD[k][0]}</h3>${PD[k][1]}`;sfx(380);say(PD[k][0]+'. '+PD[k][1])}
+$('#pch').innerHTML=Object.keys(PD).map(k=>`<button data-p='${k}'>${PD[k][0]}</button>`).join('');
+$$('#pch button').forEach(x=>x.onclick=()=>pt(x.dataset.p));
+$$('.pt').forEach(g=>{g.onclick=()=>pt(g.dataset.p);g.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();pt(g.dataset.p)}}});
+/* Viaje completo */
+const zc=$('#vj'),z=zc.getContext('2d'),RN='#ffe08a';
+let vs=0,vt=0,vl=0,vm=0,va=false;
+const hex=(x,y,r,c)=>{z.fillStyle=c;z.beginPath();for(let i=0;i<6;i++){const q=i*Math.PI/3+.3;z.lineTo(x+Math.cos(q)*r,y+Math.sin(q)*r)}z.closePath();z.fill()};
+const zt=(s,x,y,c='#e6eef6',sz=18,al='left')=>{z.font='600 '+sz+'px Sora,system-ui,sans-serif';z.fillStyle=c;z.textAlign=al;z.fillText(s,x,y)};
+const circ=(x,y,r,f,s,w=3,a=1)=>{z.globalAlpha=a;z.beginPath();z.arc(x,y,Math.max(r,1),0,6.283);if(f){z.fillStyle=f;z.fill()}if(s){z.strokeStyle=s;z.lineWidth=w;z.stroke()}z.globalAlpha=1};
+const tri=(x,y,r,c)=>{z.fillStyle=c;z.beginPath();z.moveTo(x,y-r);z.lineTo(x+r,y+r);z.lineTo(x-r,y+r);z.closePath();z.fill()};
+function wave(x0,y0,len,amp,ph,c,w=3){z.strokeStyle=c;z.lineWidth=w;z.lineCap='round';z.beginPath();for(let i=0;i<=len;i+=4){const y=y0+Math.sin(i/14+ph)*amp;i?z.lineTo(x0+i,y):z.moveTo(x0+i,y)}z.stroke()}
+const cb=(R=190,a=1)=>{circ(480,270,R,'rgba(194,65,91,.35)','#ff7a93',5,a);circ(620,330,55,'rgba(0,0,0,.3)',null,0,a)};
+const e2=u=>u<0?0:u>1?1:u*u*(3-2*u);
+const PA=[[70,360],[250,200],[430,290],[620,190],[860,330]];
+function pp(u){const n=PA.length-1,s=Math.min(Math.floor(u),n-1),f=Math.min(u-s,1);return[PA[s][0]+(PA[s+1][0]-PA[s][0])*f,PA[s][1]+(PA[s+1][1]-PA[s][1])*f]}
+const SH=['Inyección','Sangre','Unión','Entrada','Lectura','Copia','Lisis'];
+const VS=[['Inyección en el brazo','Se inyecta en una vena del brazo (vía intravenosa) y los virus quedan en la sangre. En la vía intraarterial se infundiría directamente en la arteria que irriga el tumor.'],['Viaje por la sangre','La sangre los lleva al corazón, los pulmones y todo el cuerpo. En el camino, anticuerpos, complemento y macrófagos del hígado y el bazo eliminan una parte (en gris).'],['Llegada y unión al tumor','Los virus que llegan al tumor se pegan a receptores de la superficie celular (ICAM-1, CD55, CD155). Algunos tumores tienen más receptores que las células sanas, y eso favorecería la infección selectiva.'],['Entrada y liberación del ARN','La célula engulle el virus. La cápside se abre y suelta su ARN en el citoplasma.'],['Lectura del ARN','El ARN del virus funciona como un mensajero: los ribosomas lo leen directamente y fabrican una poliproteína, que enzimas del virus cortan en proteínas de la cápside y una enzima copiadora.'],['Copia y ensamblaje','La enzima copiadora hace muchas copias del ARN. Con ellas y las proteínas de la cápside, la célula arma virus nuevos.'],['Lisis y alarma inmune','La célula se rompe. Salen virus que infectan células vecinas y restos tumorales (antígenos) que las células dendríticas llevan a los linfocitos T. Este efecto está descrito en virus oncolíticos en general.']];
+const ALT={3:'Comparación con vacuna de ARNm: una nanopartícula de lípidos entra a la célula y libera ARNm sintético. No hay virus.',4:'La célula lee el ARNm y produce una sola proteína, el antígeno. Con el tiempo, el ARNm se degrada.',5:'Con ARNm no hay copia: no se forman partículas nuevas. El efecto queda limitado a lo que se administró.',6:'Con ARNm tampoco hay lisis. El antígeno producido se presenta al sistema inmune, que aprende a reconocerlo.'};
+const SCN=[
+t=>{z.fillStyle='#d8a47f';z.beginPath();z.roundRect(40,250,460,130,60);z.fill();z.strokeStyle='#4a6fd0';z.lineWidth=8;z.lineCap='round';z.beginPath();z.moveTo(90,332);z.lineTo(470,322);z.stroke();zt('vena',100,312,'#b9c8ff',16);
+const p=e2((t-1)/3);z.save();z.translate(240,285);z.rotate(-.9);z.strokeStyle='#cfe3f5';z.lineWidth=3;z.beginPath();z.moveTo(-50,0);z.lineTo(0,0);z.stroke();z.fillStyle='rgba(207,227,245,.3)';z.beginPath();z.roundRect(0,-14,150,28,5);z.fill();z.stroke();const xp=140-120*p;z.fillStyle='#f5b041';z.fillRect(2,-12,xp-2,24);z.fillStyle='#cfe3f5';z.fillRect(xp,-12,6,24);z.fillRect(xp,-3,210-xp,6);z.fillRect(200,-14,6,28);z.restore();
+for(let i=0;i<10;i++){const x=209+Math.max(0,t-2.5-i*.25)*70;if(x>209)hex(Math.min(x,470),325-i%3*3,6,VC[i%4])}zt('Se presiona el émbolo y el contenido entra a la vena',520,300,'#e6eef6',17)},
+t=>{z.strokeStyle='rgba(194,65,91,.35)';z.lineWidth=16;z.lineCap='round';z.beginPath();PA.forEach((q,i)=>i?z.lineTo(q[0],q[1]):z.moveTo(q[0],q[1]));z.stroke();const nm=['Vena del brazo','Corazón','Pulmones','Hígado y bazo','Tumor'];PA.forEach((q,i)=>{circ(q[0],q[1],i===4?30:18,i===4?'#c2415b':'#3b5878');zt(nm[i],Math.min(Math.max(q[0],70),890),q[1]+(i===4?56:40),'#e6eef6',16,'center')});
+for(let i=0;i<26;i++){let u=(t*.45+i*.16)%4;const g=i%6===0;if(g)u=Math.min(u,2.6);const q=pp(u);if(i%2)circ(q[0]+i%3*5-5,q[1]+i%4*3-5,5,'#d64545',null,0,.8);else hex(q[0],q[1],6,g&&u>=2.6?'#8a99a8':VC[i%4])}},
+t=>{z.fillStyle='rgba(194,65,91,.18)';z.fillRect(0,50,960,60);zt('Vaso sanguíneo',20,86,'#e6eef6',16);const cx=640,cy=330,R=120;circ(cx,cy,R,'#c2415b');circ(cx+25,cy+10,42,'rgba(0,0,0,.3)');for(let i=0;i<16;i++){const a=i*.39,x=cx+Math.cos(a)*R,y=cy+Math.sin(a)*R;z.strokeStyle='#ffd1da';z.lineWidth=3;z.beginPath();z.moveTo(x,y);z.lineTo(x+Math.cos(a)*14,y+Math.sin(a)*14);z.stroke()}circ(200,340,46,'#6f8aa6');
+for(let k=0;k<8;k++){const a=-2.6+k*.42,tx=cx+Math.cos(a)*(R+10),ty=cy+Math.sin(a)*(R+10),p=e2((t-k*.4)/3.2);hex(300+k*40+(tx-300-k*40)*p,80+(ty-80)*p,8,VC[k%4])}zt('Células sanas: pocos receptores',200,410,'#9fb4c9',15,'center');zt('Célula tumoral con receptores',cx,cy+R+34,'#ff9bb0',16,'center')},
+t=>{cb();zt('Citoplasma',330,380,'#ffd1da',15,'center');zt('Núcleo',620,335,'#e6eef6',15,'center');const p=e2(t/2.5),y=90+120*p;if(t<3){if(!vm)hex(480,y,24,VC[0]);else circ(480,y,26,'rgba(245,176,65,.25)','#f5b041',4)}else{const l=Math.min(300,(t-3)*90);if(!vm)for(let i=0;i<3;i++)hex(480+(i-1)*34+(t-3)*(i-1)*6,y+i%2*10,10,'rgba(110,193,255,.5)');wave(330,y+30,l,10,t*3,RN);zt(vm?'ARNm liberado':'ARN viral liberado',480,y+80,RN,16,'center')}},
+t=>{cb();if(!vm){wave(250,260,450,10,t*.8,RN,3);for(let i=0;i<4;i++){const x=250+(t*70+i*115)%450,n=Math.min(6,Math.floor((x-250)/60));circ(x,246,10,'#e6eef6');circ(x,258,7,'#e6eef6');for(let j=0;j<n;j++)circ(x-4+Math.sin(j*1.7)*5,282+j*10,4.5,VC[(i+j)%4])}for(let k=0;k<6;k++){const p=(t*.3+k/6)%1;circ(710+p*100,250-p*110,5,VC[k%4])}zt('Ribosomas leen el ARN → poliproteína → proteínas virales',480,430,RN,16,'center')}else{z.globalAlpha=Math.max(.2,1-t/9);wave(250,260,300,8,0,RN,3);z.globalAlpha=1;const x=250+(t*60)%300;circ(x,246,10,'#e6eef6');circ(x,258,7,'#e6eef6');for(let k=0;k<4;k++){const p=(t*.25+k/4)%1;tri(600+p*140,250-p*130,7,'#ff7a93')}zt('Se produce un antígeno y el ARNm se degrada',480,430,RN,16,'center')}},
+t=>{cb();if(!vm){const n=Math.min(36,Math.floor(t*5));for(let i=0;i<n;i++)hex(340+i*83%300,190+i*57%160,10,VC[i%4]);for(let i=0;i<4;i++)wave(320+i*30,170+i*60,110,6,t*2+i,RN,2.5);zt('Copias de ARN + cápsides = virus nuevos',480,455,RN,16,'center')}else{zt('Sin copia: no se forman partículas nuevas',480,270,'#e6eef6',18,'center')}},
+t=>{const R=190+Math.min(t,3)/3*18;if(!vm){if(t<3.5)cb(R);else{const p=Math.min(1,(t-3.5)/3.5);cb(R,Math.max(0,1-p));for(let i=0;i<22;i++){const an=i*.285,d=40+p*300;hex(480+Math.cos(an)*d,270+Math.sin(an)*d*.8,7,VC[i%4])}for(let i=0;i<8;i++){const q=Math.min(1,p*1.2);tri(480+380*q,270-180*q+i*5,6,'#ff7a93')}circ(860,90,30,'#6ec1ff');zt('Célula dendrítica',860,150,'#6ec1ff',15,'center');if(p>.6){circ(760,50,12,'#e6eef6');circ(760,50,7,'#3ddc97');zt('Linfocito T',760,28,'#3ddc97',15,'center')}}}else{cb();for(let k=0;k<4;k++){const p=(t*.25+k/4)%1;tri(600+p*220,250-p*170,7,'#ff7a93')}circ(860,90,30,'#6ec1ff');zt('Célula dendrítica',860,150,'#6ec1ff',15,'center');zt('La célula sigue viva y presenta el antígeno',480,455,'#e6eef6',16,'center')}}];
+function vtx(){return vm&&ALT[vs]?ALT[vs]:VS[vs][1]}
+function vgo(i,sp){vs=i;vt=0;$$('#vch button').forEach((x,j)=>x.classList.toggle('on',j===i));$('#vp').innerHTML='<h3>Etapa '+(i+1)+' de 7: '+VS[i][0]+'</h3>'+vtx();if(sp)say(VS[i][0]+'. '+vtx());sfx(300+i*50)}
+$('#vch').innerHTML=SH.map(s=>`<button>${s}</button>`).join('');
+$$('#vch button').forEach((x,i)=>x.onclick=()=>vgo(i));
+$('#vprev').onclick=()=>vgo(Math.max(0,vs-1));$('#vnext').onclick=zc.onclick=()=>vgo(Math.min(6,vs+1));
+$('#vauto').onclick=e=>{va=!va;e.target.textContent=va?'⏸ Auto':'▶ Auto';e.target.classList.toggle('on',va);if(va)vgo(vs,true);else if(window.speechSynthesis)speechSynthesis.cancel()};
+$('#vsay').onclick=()=>say(VS[vs][0]+'. '+vtx());
+[0,1].forEach(k=>$('#vm'+k).onclick=()=>{vm=k;$('#vm0').classList.toggle('on',!k);$('#vm1').classList.toggle('on',!!k);vgo(vs);});
+function vloop(ts){vt+=(ts-vl)/1000;vl=ts;if(va&&vt>10&&vs<6)vgo(vs+1,true);z.clearRect(0,0,960,480);SCN[vs](vt);zt((vs+1)+'. '+VS[vs][0],20,32,'#3ddc97',20);if(vm)zt('Comparación: vacuna de ARNm',940,32,'#f5b041',16,'right');requestAnimationFrame(vloop)}
+vgo(0);requestAnimationFrame(vloop);
+/* Inyección */
+const bc=$('#body'),b=bc.getContext('2d'),DS=['0,5 × 10⁶','5 × 10⁶','5 × 10⁷'];
+let iv=0,ie=1,id=0,P=[],bt=0,bl=0,go=false;
+const PATH=[[[70,320],[250,160],[430,250],[620,150],[860,290]],[[70,320],[460,230],[860,290]]],NM=[['Vena del brazo','Corazón','Pulmones','Hígado y bazo','Tumor'],['Catéter en la arteria','Arteria del tumor','Tumor']],PS=[[.9,.95,.45,.85],[.95,.95]];
+function opts(el,list,get,set){$(el).innerHTML=list.map((t,i)=>'<button>'+t+'</button>').join('');$$(el+' button').forEach((x,i)=>{x.classList.toggle('on',get()===i);x.onclick=()=>{set(i);opts(el,list,get,set);info();sfx(400+i*60)}})}
+function info(){const r=iv?'Intraarterial: se infunde en la arteria que lleva sangre al tumor para concentrar allí el virus. En el registro, es para enfermedad local muy extensa sin metástasis a distancia, o con una lesión aislada que progresa.':'Intravenosa: el virus entra por una vena y circula por todo el cuerpo. En el registro, es para pacientes con metástasis a distancia.';const d=ie===1?'Dosis única de '+DS[id]+' PFU/kg (nivel '+(id+1)+' de 3).':'Dosis: la óptima definida en la etapa de dosis única, repetida cada 10 días.';$('#itxt').innerHTML='<h3>'+(iv?'Vía intraarterial':'Vía intravenosa')+'</h3>'+r+'<br><br>'+d+' PFU (unidades formadoras de placa) es una medida de cuántos virus infecciosos hay.';$('#cal').innerHTML='<div class="cal">'+[0,10,20].slice(0,ie).map(x=>'<span>💉 Día '+x+'</span>').join('')+'</div>';$$('#cd button').forEach(x=>x.disabled=ie>1);if(!go)go=false;P=[];bt=0}
+function ctl(){opts('#cv',['Intravenosa','Intraarterial'],()=>iv,i=>iv=i);opts('#ce',['1 dosis','2 dosis','3 dosis'],()=>ie-1,i=>ie=i+1);opts('#cd',DS,()=>id,i=>id=i)}
+ctl();info();
+$('#shoot').onclick=()=>{P=[];const n=PS[iv].length;for(let i=0;i<36;i++){let st=n;for(let s=0;s<n;s++)if(Math.random()>PS[iv][s]){st=s;break}P.push({d:i*.14,max:st<n?st+.3+Math.random()*.6:n,y:(Math.random()-.5)*18,c:VC[i%4]})}bt=0;sfx(500,.2);say(iv?'Infusión por la arteria que irriga el tumor.':'Inyección intravenosa. El virus entra por una vena del brazo.')};
+function pos(u){const p=PATH[iv],n=p.length-1,s=Math.min(Math.floor(u),n-1),f=Math.min(u-s,1);return[p[s][0]+(p[s+1][0]-p[s][0])*f,p[s][1]+(p[s+1][1]-p[s][1])*f]}
+function bdraw(){b.clearRect(0,0,960,400);const p=PATH[iv],nm=NM[iv];b.strokeStyle='#c2415b';b.lineWidth=14;b.lineCap='round';b.globalAlpha=.35;b.beginPath();p.forEach((q,i)=>i?b.lineTo(q[0],q[1]):b.moveTo(q[0],q[1]));b.stroke();b.globalAlpha=1;
+p.forEach((q,i)=>{const t=i===p.length-1;b.fillStyle=t?'#c2415b':'#3b5878';b.beginPath();b.arc(q[0],q[1],t?34:20,0,6.283);b.fill();b.font='600 17px Sora,system-ui,sans-serif';b.fillStyle='#e6eef6';b.textAlign='center';b.fillText(nm[i],Math.min(Math.max(q[0],80),880),q[1]+(t?58:42))});
+let arr=0,cap=0;P.forEach(o=>{const u=Math.min(o.max,Math.max(0,bt-o.d)*.6);if(bt<o.d)return;const q=pos(u),end=u>=o.max,full=o.max>=p.length-1;if(end&&!full){cap++;b.globalAlpha=.45;b.fillStyle='#8a99a8'}else{if(end)arr++;b.fillStyle=o.c}const j=end&&full?[Math.cos(o.d*9)*18,Math.sin(o.d*7)*18]:[0,o.y*.4];b.beginPath();b.arc(q[0]+j[0],q[1]+j[1],6,0,6.283);b.fill();b.globalAlpha=1});
+if(P.length){b.font='600 18px Sora,system-ui,sans-serif';b.textAlign='left';b.fillStyle='#3ddc97';b.fillText('Llegan al tumor: '+arr+' de 36 (ilustrativo)',20,34);b.fillStyle='#9fb4c9';b.fillText('Eliminadas en el camino: '+cap+' (gris)',20,62)}}
+function bloop(ts){bt+=(ts-bl)/1000;bl=ts;bdraw();requestAnimationFrame(bloop)}requestAnimationFrame(bloop);
+/* 3+3 */
+let S={lv:0,ph:0,done:0,log:[],msg:''};
+function r33(){const el=$('#s33');if(S.done){el.innerHTML='<h3>Fin: '+S.msg+'</h3><p>'+S.log.join('<br>')+'</p><button id="r33b">Reiniciar</button>';$('#r33b').onclick=()=>{S={lv:0,ph:0,done:0,log:[],msg:''};r33()};return}
+el.innerHTML='<h3>Nivel '+(S.lv+1)+' de 3: '+DS[S.lv]+' PFU/kg</h3><p>'+(S.ph?'Se añaden 3 pacientes más (hubo 1 TLD en los primeros 3). ¿Cuántos tienen TLD?':'Se tratan 3 pacientes. ¿Cuántos tienen TLD?')+'</p><div class="row">'+[0,1,2,3].map(n=>'<button data-n="'+n+'">'+n+' de 3</button>').join('')+'</div>'+(S.log.length?'<p>'+S.log.join('<br>')+'</p>':'');$$('#s33 [data-n]').forEach(x=>x.onclick=()=>pick(+x.dataset.n))}
+function adv(){if(S.lv===2){S.done=1;S.msg='se probaron los 3 niveles sin superar el límite de toxicidad.'}else{S.lv++;S.ph=0}}
+function stop(){S.done=1;S.msg=S.lv>0?'la dosis máxima tolerada sería el nivel '+S.lv+' ('+DS[S.lv-1]+' PFU/kg).':'ya el primer nivel fue demasiado tóxico; habría que rediseñar el estudio.'}
+function pick(n){sfx(380+n*70);if(!S.ph){if(n===0){S.log.push('Nivel '+(S.lv+1)+': 0 de 3 con TLD, se sube la dosis.');adv()}else if(n===1){S.log.push('Nivel '+(S.lv+1)+': 1 de 3 con TLD, se amplía a 6 pacientes.');S.ph=1}else{S.log.push('Nivel '+(S.lv+1)+': '+n+' de 3 con TLD, se detiene la escalada.');stop()}}else{if(n===0){S.log.push('Nivel '+(S.lv+1)+': 1 de 6 con TLD, se sube la dosis.');adv()}else{S.log.push('Nivel '+(S.lv+1)+': 2 o más de 6 con TLD, se detiene la escalada.');stop()}}r33()}
+r33();
+/* Sistema inmune */
+const PH=[['Minutos · en la sangre','Actúan primero las defensas que no necesitan aprender: pueden retirar parte de los virus antes de que lleguen al tumor.',[['Anticuerpos neutralizantes','Si la persona ya tuvo contacto con ese tipo de enterovirus, puede tener anticuerpos que se pegan a la partícula viral y bloquean la infección.'],['Complemento','Grupo de proteínas de la sangre que marca partículas extrañas y ayuda a eliminarlas.'],['Macrófagos del hígado y bazo','Células limpiadoras que capturan partículas circulantes. Es una de las razones por las que no todo el virus inyectado llega al tumor.']]],['Horas · en el tumor','Si el virus llega, entra a las células por receptores y empieza a copiarse. La célula intenta defenderse.',[['Receptores de entrada','ICAM-1, CD55 y CD155 funcionan como cerraduras que los virus usan para entrar. Algunos tumores tienen más cantidad de ellas.'],['Sensores RIG-I y MDA5','Dentro de la célula detectan ARN viral y activan la producción de interferón, una señal de alarma antiviral.'],['Interferón','En células sanas frena la replicación viral. Muchos tumores tienen esta vía alterada, lo que explicaría en parte por qué el virus se multiplica mejor en ellos.']]],['Días · lisis y alarma','Las células tumorales infectadas se rompen y liberan virus nuevos, antígenos tumorales y señales de peligro.',[['Células NK','Reconocen y destruyen células infectadas o alteradas sin necesitar una señal previa específica.'],['Células dendríticas','Capturan restos del tumor, viajan a los ganglios linfáticos y presentan los antígenos a los linfocitos T.'],['Señales de peligro','Moléculas liberadas por las células que mueren y que avisan al sistema inmune de que algo ocurre.']]],['Semanas · memoria','Se arma la respuesta adaptativa, la que daría el posible efecto «vacuna».',[['Linfocitos T CD8+','Pueden aprender a reconocer antígenos del tumor y destruir células tumorales, incluso lejos del sitio de inyección. Este efecto está descrito en virus oncolíticos en general y no se ha demostrado para Enteromix.'],['Células de memoria','Podrían ayudar a vigilar el tumor a largo plazo.'],['Anticuerpos contra el virus','También se forman anticuerpos antivirales, que podrían limitar la eficacia de dosis repetidas. El registro del ensayo incluye esquemas de 1, 2 y 3 dosis y medir el virus en sangre con el tiempo.']]]];
+function setPh(i){$('#tl').value=i;$$('#tlb button').forEach((x,j)=>x.classList.toggle('on',j===i));const p=PH[i];$('#actors').innerHTML=p[2].map((a,k)=>'<button class="vc" data-k="'+k+'"><b>'+a[0]+'</b></button>').join('');$('#atxt').innerHTML='<h3>'+p[0]+'</h3>'+p[1];$$('#actors .vc').forEach(x=>x.onclick=()=>{const a=p[2][x.dataset.k];$$('#actors .vc').forEach(y=>y.classList.remove('on'));x.classList.add('on');$('#atxt').innerHTML='<h3>'+a[0]+'</h3>'+a[1];sfx(440);say(a[0]+'. '+a[1])})}
+$('#tlb').innerHTML=PH.map(p=>'<button>'+p[0]+'</button>').join('');$$('#tlb button').forEach((x,i)=>x.onclick=()=>{setPh(i);sfx(300+i*90)});$('#tl').oninput=e=>setPh(+e.target.value);setPh(0);
+const M=[['El ARN del virus dentro de una célula infectada',['Sensores RIG-I y MDA5','Anticuerpos neutralizantes','Linfocitos T CD8+'],0,'Estos sensores viven dentro de la célula y disparan la alarma de interferón.'],['Partículas virales libres en la sangre',['Células dendríticas','Anticuerpos neutralizantes','Células NK'],1,'Los anticuerpos se pegan a la partícula y bloquean su entrada a las células.'],['Restos del tumor liberados tras la lisis',['Células dendríticas','Macrófagos del hígado','Interferón'],0,'Las células dendríticas los capturan y los presentan a los linfocitos T en los ganglios.'],['Células tumorales que muestran antígenos del tumor',['Complemento','Linfocitos T CD8+','Anticuerpos neutralizantes'],1,'Los linfocitos T CD8+ reconocen esos antígenos y destruyen la célula.'],['Partículas circulantes que quedan atrapadas en hígado y bazo',['Macrófagos','Células de memoria','Sensores RIG-I'],0,'Los macrófagos capturan partículas circulantes, por eso llega menos virus al tumor.']];
+let ms2=0,md=0;
+$('#mis').innerHTML=M.map((q,i)=>'<div class="q"><h3>¿Quién reconoce: '+q[0]+'?</h3>'+q[1].map((o,j)=>'<button data-q="'+i+'" data-o="'+j+'">'+o+'</button>').join('')+'<p class="ex"></p></div>').join('');
+$$('#mis button').forEach(x=>x.onclick=()=>{const i=+x.dataset.q,w=x.parentElement;if(w.dataset.d)return;w.dataset.d=1;const ok=+x.dataset.o===M[i][2];x.classList.add(ok?'ok':'bad');if(!ok)w.querySelectorAll('button')[M[i][2]].classList.add('ok');w.querySelector('.ex').textContent=M[i][3];if(ok)ms2++;md++;sfx(ok?660:200);$('#mscore').textContent=md<M.length?'Llevas '+ms2+' correctas de '+md+'.':'Misión completa: '+ms2+' de '+M.length+(ms2===M.length?'. ¡Perfecto!':'. Repasa la línea de tiempo y vuelve a intentarlo.')});
+/* Quiz */
+const Q=[['Según sus desarrolladores, ¿qué tipo de terapia es Enteromix?',['Vacuna de ARNm','Mezcla de cuatro virus oncolíticos','Anticuerpo monoclonal'],1],['¿En qué fase de investigación está?',['Fase I','Fase III','Ya está aprobada'],0],['¿Qué evalúa principalmente un ensayo de fase I?',['Supervivencia a cinco años','Seguridad, dosis y tolerabilidad','Comparación con la quimioterapia'],1],['¿Qué falta para evaluar de forma independiente sus resultados?',['Más noticias','Datos publicados y revisados por pares','Más pacientes en redes sociales'],1],['¿Qué significa «oncolítico»?',['Que previene infecciones','Que fabrica anticuerpos','Que destruye células tumorales'],2]];
+let sc=0,dn=0;
+$('#qs').innerHTML=Q.map((q,i)=>'<div class="q"><h3>'+(i+1)+'. '+q[0]+'</h3>'+q[1].map((o,j)=>'<button data-q="'+i+'" data-o="'+j+'">'+o+'</button>').join('')+'</div>').join('');
+$$('.q button').forEach(b=>b.onclick=()=>{const i=+b.dataset.q,w=b.parentElement;if(w.dataset.d)return;w.dataset.d=1;const ok=+b.dataset.o===Q[i][2];b.classList.add(ok?'ok':'bad');if(!ok)w.querySelectorAll('button')[Q[i][2]].classList.add('ok');if(ok)sc++;dn++;sfx(ok?660:200);$('#score').textContent=dn<Q.length?'Llevas '+sc+' correctas de '+dn+'.':'Resultado final: '+sc+' de '+Q.length+(sc===Q.length?'. ¡Perfecto!':'. Repasa las secciones y vuelve a intentarlo.')});
+</script>
+</body>
+</html>
