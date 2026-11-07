@@ -60,6 +60,7 @@ input[type=range]{width:100%;accent-color:var(--teal)}
 :root:not([data-theme="light"]){--bg:#000;--ink:#f2f6fa;--card:#0b1118;--line:#26364a;--teal:#3ddc97;--rose:#ff7a93;--amber:#f5b041;--soft:#141d28;color-scheme:dark}
 body{background:linear-gradient(160deg,#1c2530 0%,#050608 30%,#000 60%,#0b0f14 100%);background-attachment:fixed}
 .card,.panel,details,nav,.sim,table{box-shadow:none}
+.hero-img{width:100%;max-width:420px;justify-self:center;border-radius:14px;border:1px solid var(--line)}
 </style>
 </head>
 <body>
@@ -70,13 +71,7 @@ body{background:linear-gradient(160deg,#1c2530 0%,#050608 30%,#000 60%,#0b0f14 1
 <p>Es una mezcla experimental de cuatro virus, desarrollada en Rusia, que se estudia en personas con tumores sólidos. Los titulares hablaron de «100 % de eficacia». Esta guía explica qué es, cómo se supone que actúa y qué se ha demostrado de verdad.</p>
 <div class="row"><button class="main" data-say="Enteromix es una mezcla experimental de cuatro virus, desarrollada en Rusia, que se estudia en personas con tumores sólidos. Todavía está en fase uno, y sus resultados no han sido publicados en revistas científicas revisadas por pares.">Escuchar resumen</button><button id="mute" aria-pressed="false">Sonido: activado</button></div>
 </div>
-<svg viewBox="0 0 300 300" role="img" aria-label="Ilustración de una partícula viral" style="width:100%;max-width:340px;justify-self:center">
-<defs><radialGradient id="g" cx="40%" cy="35%"><stop offset="0" stop-color="var(--teal)" stop-opacity=".9"/><stop offset="1" stop-color="var(--teal)" stop-opacity=".35"/></radialGradient></defs>
-<g stroke="var(--teal)" stroke-width="4"><path d="M150 20v40M150 240v40M20 150h40M240 150h40M58 58l28 28M214 214l28 28M242 58l-28 28M86 214l-28 28"/></g>
-<polygon points="150,60 224,105 224,195 150,240 76,195 76,105" fill="url(#g)" stroke="var(--teal)" stroke-width="5"/>
-<g stroke="var(--bg)" stroke-width="3" fill="none" opacity=".8"><path d="M150 60l0 90M76 105l74 45M224 105l-74 45M150 150l0 90M76 195l74-45M224 195l-74-45"/></g>
-<circle cx="150" cy="150" r="16" fill="var(--rose)"/>
-</svg>
+<img class="hero-img" src="portada.jpg" alt="Describe la imagen en una frase">
 </header>
 <nav aria-label="Secciones"><a href="#resumen">Resumen</a><a href="#porque">¿Por qué?</a><a href="#que-es">¿Qué es?</a><a href="#estructura">Estructura</a><a href="#mecanismo">Mecanismo</a><a href="#viaje">Viaje completo</a><a href="#inyeccion">La inyección</a><a href="#inmune">Sistema inmune</a><a href="#virus">Los 4 virus</a><a href="#evidencia">Evidencia</a><a href="#mitos">Mitos y hechos</a><a href="#contexto">Contexto</a><a href="#quiz">Quiz</a><a href="#fuentes">Fuentes</a></nav>
 
