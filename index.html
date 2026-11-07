@@ -57,6 +57,9 @@ input[type=range]{width:100%;accent-color:var(--teal)}
 .pt{cursor:pointer}.pt:hover,.pt.on{filter:drop-shadow(0 0 6px var(--amber))}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}@media(max-width:760px){.two{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+:root:not([data-theme="light"]){--bg:#000;--ink:#f2f6fa;--card:#0d1620;--line:#2a3a4d;--teal:#3ddc97;--rose:#ff7a93;--amber:#f5b041;--soft:#16202c;color-scheme:dark}
+body{background:radial-gradient(ellipse at 50% 0%,#202c3a 0%,#070b10 40%,#000 100%) fixed}
+.card,.panel,details,nav{box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 8px 28px rgba(0,0,0,.7)}
 </style>
 </head>
 <body>
