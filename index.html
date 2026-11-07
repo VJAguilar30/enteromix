@@ -57,9 +57,10 @@ input[type=range]{width:100%;accent-color:var(--teal)}
 .pt{cursor:pointer}.pt:hover,.pt.on{filter:drop-shadow(0 0 6px var(--amber))}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}@media(max-width:760px){.two{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-:root:not([data-theme="light"]){--bg:#000;--ink:#f2f6fa;--card:#0d1620;--line:#2a3a4d;--teal:#3ddc97;--rose:#ff7a93;--amber:#f5b041;--soft:#16202c;color-scheme:dark}
-body{background:radial-gradient(ellipse at 50% 0%,#202c3a 0%,#070b10 40%,#000 100%) fixed}
-.card,.panel,details,nav{box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 8px 28px rgba(0,0,0,.7)}
+:root:not([data-theme="light"]){--bg:#FBFAFF;--ink:#2A2455;--card:rgba(255,255,255,.9);--line:#B8A7FF;--soft:#E6E1FF;--teal:#0a7d5c;--rose:#c2415b;--amber:#a15c07;color-scheme:light}
+body{background:radial-gradient(circle at 12% 8%,rgba(184,167,255,.75) 0,transparent 45%),radial-gradient(circle at 88% 22%,rgba(230,225,255,.95) 0,transparent 50%),radial-gradient(circle at 25% 88%,rgba(106,90,205,.35) 0,transparent 45%),radial-gradient(circle at 92% 92%,rgba(184,167,255,.7) 0,transparent 40%),#FBFAFF;background-attachment:fixed}
+.card,.panel,details,nav,.sim,table{backdrop-filter:blur(8px);box-shadow:0 8px 24px rgba(42,36,85,.12)}
+#mech,#vj,#body{background:#2A2455}
 </style>
 </head>
 <body>
