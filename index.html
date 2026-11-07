@@ -61,6 +61,11 @@ input[type=range]{width:100%;accent-color:var(--teal)}
 body{background:linear-gradient(160deg,#1c2530 0%,#050608 30%,#000 60%,#0b0f14 100%);background-attachment:fixed}
 .card,.panel,details,nav,.sim,table{box-shadow:none}
 .hero-img{width:100%;max-width:420px;justify-self:center;border-radius:14px;border:1px solid var(--line)}
+.imgvir{position:relative;max-width:460px;justify-self:center}
+.imgvir img{width:100%;display:block;border-radius:10px}
+.dot{position:absolute;transform:translate(-50%,-50%);width:26px;height:26px;padding:0;border-radius:50%;border:3px solid #fff;background:rgba(61,220,151,.45);animation:pul 1.8s infinite}
+.dot.on{background:var(--amber)}
+@keyframes pul{50%{box-shadow:0 0 0 9px rgba(61,220,151,0)}}
 </style>
 </head>
 <body>
@@ -112,15 +117,16 @@ body{background:linear-gradient(160deg,#1c2530 0%,#050608 30%,#000 60%,#0b0f14 1
 <h2>Estructura de un virus de Enteromix</h2>
 <p>Los cuatro virus son enterovirus y comparten la misma arquitectura. Toca cada parte del esquema (es una versión simplificada).</p>
 <div class='two'>
-<svg viewBox='0 0 400 360' role='img' aria-label='Esquema de un enterovirus' style='width:100%;max-width:460px;justify-self:center'>
-<g class='pt' data-p='capside' tabindex='0'><polygon points='200,20 340,100 340,260 200,340 60,260 60,100' fill='var(--soft)' stroke='var(--teal)' stroke-width='6'/><path d='M200 20V180M60 100L200 180M340 100L200 180M60 260L200 180M340 260L200 180M200 340V180' stroke='var(--line)' stroke-width='2' fill='none'/></g>
-<g class='pt' data-p='vp' tabindex='0'><circle cx='150' cy='95' r='13' fill='#3ddc97'/><circle cx='250' cy='95' r='13' fill='#f5b041'/><circle cx='200' cy='135' r='13' fill='#6ec1ff'/></g>
-<g class='pt' data-p='canon' tabindex='0'><path d='M340 145L316 180L340 215' fill='none' stroke='var(--amber)' stroke-width='6'/></g>
-<g class='pt' data-p='vp4' tabindex='0'><circle cx='200' cy='200' r='12' fill='var(--rose)'/></g>
-<g class='pt' data-p='arn' tabindex='0'><path d='M110 262C140 212 170 300 200 262S260 222 290 262' fill='none' stroke='var(--rose)' stroke-width='5'/></g>
-<g class='pt' data-p='vpg' tabindex='0'><circle cx='108' cy='262' r='9' fill='var(--amber)'/></g>
-<g class='pt' data-p='ires' tabindex='0'><path d='M290 262c24-34 44 8 20 20' fill='none' stroke='var(--teal)' stroke-width='5'/></g>
-</svg>
+<div class="imgvir">
+<img src="virus.jpg" alt="Estructura de un enterovirus">
+<button class="dot pt" data-p="capside" style="left:50%;top:8%" aria-label="Cápside"></button>
+<button class="dot pt" data-p="vp" style="left:30%;top:25%" aria-label="VP1, VP2 y VP3"></button>
+<button class="dot pt" data-p="vp4" style="left:50%;top:40%" aria-label="VP4"></button>
+<button class="dot pt" data-p="canon" style="left:90%;top:50%" aria-label="Zona de unión al receptor"></button>
+<button class="dot pt" data-p="arn" style="left:50%;top:60%" aria-label="Genoma de ARN"></button>
+<button class="dot pt" data-p="vpg" style="left:25%;top:70%" aria-label="VPg"></button>
+<button class="dot pt" data-p="ires" style="left:75%;top:70%" aria-label="IRES"></button>
+</div>
 <div><div class='row' id='pch'></div><div class='panel' id='ppn' aria-live='polite'>Elige una parte para ver qué hace.</div></div>
 </div>
 </section>
