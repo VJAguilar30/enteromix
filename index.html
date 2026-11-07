@@ -79,7 +79,7 @@ body{background:linear-gradient(160deg,#1c2530 0%,#050608 30%,#000 60%,#0b0f14 1
 </div>
 <img class="hero-img" src="portada.jpg" alt="Describe la imagen en una frase">
 </header>
-<nav aria-label="Secciones"><a href="#resumen">Resumen</a><a href="#porque">¿Por qué?</a><a href="#que-es">¿Qué es?</a><a href="#estructura">Estructura</a><a href="#mecanismo">Mecanismo</a><a href="#viaje">Viaje completo</a><a href="#inyeccion">La inyección</a><a href="#inmune">Sistema inmune</a><a href="#virus">Los 4 virus</a><a href="#evidencia">Evidencia</a><a href="#mitos">Mitos y hechos</a><a href="#contexto">Contexto</a><a href="#quiz">Quiz</a><a href="#fuentes">Fuentes</a></nav>
+<nav aria-label="Secciones"><a href="#resumen">Resumen</a><a href="#porque">¿Por qué?</a><a href="#que-es">¿Qué es?</a><a href="#estructura">Estructura</a><a href="#mecanismo">Mecanismo</a><a href="#viaje">Viaje completo</a><a href="#inmune">Sistema inmune</a><a href="#virus">Los 4 virus</a><a href="#evidencia">Evidencia</a><a href="#mitos">Mitos y hechos</a><a href="#quiz">Quiz</a><a href="#fuentes">Fuentes</a></nav>
 
 <section id="resumen">
 <h2>Lo esencial en 30 segundos</h2>
@@ -119,16 +119,18 @@ body{background:linear-gradient(160deg,#1c2530 0%,#050608 30%,#000 60%,#0b0f14 1
 <p>Los cuatro virus son enterovirus y comparten la misma arquitectura. Toca cada parte del esquema (es una versión simplificada).</p>
 <div class='two'>
 <div class="imgvir">
-<img src="virus.jpg" alt="Estructura de un picornavirus: corte del virión y cápside">
-<button class="dot pt" data-p="capside" style="left:21.4%;top:9.2%" aria-label="Cápside"></button>
-<button class="dot pt" data-p="capside" style="left:89.6%;top:72.5%" aria-label="Cápside"></button>
-<button class="dot pt" data-p="vp" style="left:36.7%;top:29.5%" aria-label="VP1"></button>
-<button class="dot pt" data-p="vp0" style="left:38.8%;top:45.4%" aria-label="VP0"></button>
-<button class="dot pt" data-p="vp" style="left:39.2%;top:56%" aria-label="VP3"></button>
-<button class="dot pt" data-p="arn" style="left:22.7%;top:42.3%" aria-label="Genoma de ARN"></button>
-<button class="dot pt" data-p="vpg" style="left:13%;top:65.5%" aria-label="VPg"></button>
-<button class="dot pt" data-p="polya" style="left:30%;top:64.3%" aria-label="Cola de poli-A"></button>
-<p style="font-size:.85rem;opacity:.75">Izquierda: corte del virión. Derecha: cápside. Fuente: https://commons.wikimedia.org/wiki/File:Megrivirus_image.svg.</p>
+<img src="virion.jpg" alt="Estructura de un picornavirus: corte del virión y cápside">
+<button class="dot pt" data-p="capside" style="left:21.7%;top:10%" aria-label="Cápside"></button>
+<button class="dot pt" data-p="capside" style="left:87.9%;top:75.8%" aria-label="Cápside"></button>
+<button class="dot pt" data-p="vp" style="left:38.2%;top:29.8%" aria-label="VP1"></button>
+<button class="dot pt" data-p="vp" style="left:38.2%;top:45%" aria-label="VP2"></button>
+<button class="dot pt" data-p="vp" style="left:38.2%;top:55%" aria-label="VP3"></button>
+<button class="dot pt" data-p="vp4" style="left:34.5%;top:63.1%" aria-label="VP4"></button>
+<button class="dot pt" data-p="arn" style="left:23.3%;top:37.9%" aria-label="Genoma de ARN"></button>
+<button class="dot pt" data-p="ires" style="left:15.2%;top:54.3%" aria-label="IRES"></button>
+<button class="dot pt" data-p="vpg" style="left:12.1%;top:66.2%" aria-label="VPg"></button>
+<button class="dot pt" data-p="polya" style="left:29.5%;top:65%" aria-label="Extremo 3′ del ARN"></button>
+<p style="font-size:.85rem;opacity:.75">Izquierda: corte del virión. Derecha: cápside. Fuente: ViralZone, SIB Swiss Institute of Bioinformatics (viralzone.expasy.org).</p>
 </div>
 <div><div class='row' id='pch'></div><div class='panel' id='ppn' aria-live='polite'>Elige una parte para ver qué hace.</div></div>
 </div>
@@ -151,7 +153,7 @@ body{background:linear-gradient(160deg,#1c2530 0%,#050608 30%,#000 60%,#0b0f14 1
 <div class='panel' id='vp' aria-live='polite'></div>
 </section>
 
-<section id="inyeccion">
+<section id="inyeccion" hidden>
 <h2>La inyección: vías, dosis y esquemas</h2>
 <p>Estos esquemas están tomados del registro del ensayo de fase I. Elige vía, esquema y dosis, pulsa «Inyectar» y mira el recorrido del virus. La animación es una ilustración conceptual: cuánto virus llega realmente al tumor no se conoce para Enteromix.</p>
 <div class="ctl"><div><b>Vía</b><div class="row" id="cv"></div></div><div><b>Esquema</b><div class="row" id="ce"></div></div><div><b>Dosis (PFU/kg)</b><div class="row" id="cd"></div></div></div>
@@ -203,26 +205,6 @@ body{background:linear-gradient(160deg,#1c2530 0%,#050608 30%,#000 60%,#0b0f14 1
 <details><summary>«Ya está aprobada y se puede comprar»</summary><p>Tener autorización en Rusia para hacer un ensayo no es una aprobación de la FDA ni de la EMA. Hoy solo se administra dentro de un estudio clínico.</p></details>
 <details><summary>«Cura el cáncer»</summary><p>No hay evidencia publicada que lo demuestre. Si tú o alguien cercano tiene cáncer, lo apropiado es seguir el tratamiento indicado por su equipo médico.</p></details>
 <details><summary>«Es peligrosa porque usa virus»</summary><p>Los virus oncolíticos se estudian desde hace décadas y varios están aprobados. Aun así, que los datos de seguridad no estén publicados impide evaluarlo de forma independiente.</p></details>
-</section>
-
-<section id="contexto">
-<h2>Contexto: otros virus oncolíticos</h2>
-<div class="wrap"><table>
-<tr><th>Terapia</th><th>Virus</th><th>Situación</th></tr>
-<tr><td>T-VEC (Imlygic)</td><td>Herpes simple modificado</td><td>Aprobada por la FDA en 2015 para melanoma</td></tr>
-<tr><td>V937</td><td>Coxsackievirus A21</td><td>Estudiado en fases I–II (melanoma, vejiga, tumores sólidos)</td></tr>
-<tr><td>PVSRIPO</td><td>Poliovirus Sabin modificado</td><td>Fase I en glioblastoma; seguridad favorable en esos estudios</td></tr>
-<tr><td>Rigvir</td><td>ECHO-7</td><td>Registro revocado en Letonia en 2019 por discrepancias en el contenido viral</td></tr>
-<tr><td>Enteromix</td><td>Mezcla de 4 enterovirus</td><td>Fase I; sin publicaciones revisadas por pares</td></tr>
-</table></div>
-<h3 style="margin-top:24px">Glosario</h3>
-<dl>
-<dt>Oncolítico</dt><dd>Que destruye células tumorales (lisis).</dd>
-<dt>Enterovirus</dt><dd>Virus de ARN pequeños sin envoltura (familia Picornaviridae).</dd>
-<dt>Fase I</dt><dd>Primer estudio en personas: seguridad, dosis y tolerabilidad.</dd>
-<dt>Farmacocinética</dt><dd>Qué hace el organismo con el medicamento con el tiempo.</dd>
-<dt>Revisión por pares</dt><dd>Evaluación de un estudio por expertos independientes antes de publicarse.</dd>
-</dl>
 </section>
 
 <section id="quiz">
@@ -290,8 +272,9 @@ function cmp(i){$$('#cmp button').forEach((x,j)=>x.classList.toggle('on',j===i))
 $$('#cmp button').forEach((x,i)=>x.onclick=()=>{cmp(i);sfx(420);say(CP[i][1])});cmp(0);
 const PD={capside:['Cápside','Cubierta de proteína con forma de icosaedro, de unos 30 nanómetros. No tiene envoltura de lípidos, lo que la hace resistente al ácido del estómago (de ahí el nombre entero-virus). Está formada por 60 copias de cuatro proteínas: VP1, VP2, VP3 y VP4.'],vp:['VP1, VP2 y VP3','Quedan expuestas en la superficie. Determinan a qué receptor se une el virus y son lo que reconocen los anticuerpos.'],vp4:['VP4','Proteína interna, bajo la cápside. Ayuda a que el ARN salga al citoplasma cuando el virus entra a la célula.'],canon:['Zona de unión al receptor','Región de la superficie que reconoce el receptor celular (ICAM-1, CD55 o CD155, según el virus). En muchos enterovirus es una hendidura llamada cañón.'],arn:['Genoma de ARN','Una sola hebra de ARN de polaridad positiva, de unos 7 500 nucleótidos. Tiene el mismo sentido que un ARN mensajero, por eso los ribosomas pueden leerla directamente y producir una poliproteína que enzimas del virus cortan en proteínas.'],vpg:['VPg','Pequeña proteína unida al extremo 5′ del ARN. Sirve de cebador para que la enzima copiadora empiece a fabricar copias del genoma.'],ires:['IRES','Secuencia del extremo 5′ que permite al ribosoma engancharse al ARN sin necesitar «cap». En PV-Russo, el IRES incluye elementos de rinovirus, una modificación que según los desarrolladores busca reducir su capacidad de dañar neuronas.']};
 function pt(k){$$('.pt').forEach(g=>g.classList.toggle('on',g.dataset.p===k));$$('#pch button').forEach(x=>x.classList.toggle('on',x.dataset.p===k));$('#ppn').innerHTML=`<h3>${PD[k][0]}</h3>${PD[k][1]}`;sfx(380);say(PD[k][0]+'. '+PD[k][1])}
-PD.vp0=['VP0','En esta imagen aparece VP0, el precursor que, cuando el virus madura, se corta en VP4 y VP2. VP4 queda en el interior de la cápside y VP2 en la superficie.'];
-PD.polya=['Cola de poli-A','Serie de adeninas en el extremo 3′ del ARN viral. Como en los ARN mensajeros, ayuda a proteger el ARN y a que se lea y se copie.'];
+PD.ires=['IRES','Secuencia de ARN de la región 5′, cerca del extremo donde está unida la VPg. Permite al ribosoma engancharse al ARN sin necesitar «cap» y leer la poliproteína. El dibujo no la rotula: el punto marca su ubicación aproximada. En PV-Russo incluye elementos de rinovirus, una modificación que según los desarrolladores busca reducir su capacidad de dañar neuronas.'];
+PD.polya=['Extremo 3′ del ARN (zigzag)','En el dibujo aparece un trazo en zigzag al final del ARN, en el extremo opuesto a la VPg. ViralZone no lo rotula, pero su ficha indica que el genoma de los picornavirus es poliadenilado, es decir, termina en una cola de poli-A en el extremo 3′. Esa cola ayuda a proteger el ARN y a que se lea y se copie.'];
+delete PD.canon;
  $('#pch').innerHTML=Object.keys(PD).map(k=>`<button data-p='${k}'>${PD[k][0]}</button>`).join('');
 $$('#pch button').forEach(x=>x.onclick=()=>pt(x.dataset.p));
 $$('.pt').forEach(g=>{g.onclick=()=>pt(g.dataset.p);g.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();pt(g.dataset.p)}}});
