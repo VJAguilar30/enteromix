@@ -67,6 +67,11 @@ body{background:linear-gradient(160deg,#1c2530 0%,#050608 30%,#000 60%,#0b0f14 1
 .dot{position:absolute;transform:translate(-50%,-50%);width:clamp(14px,2.6vw,26px);height:clamp(14px,2.6vw,26px);padding:0;border-radius:50%;border:2px solid #111;background:rgba(255,160,0,.7);cursor:pointer;animation:pul 1.8s infinite}
 .dot.on{background:#ff3b6b}
 @keyframes pul{50%{box-shadow:0 0 0 9px rgba(255,160,0,0)}}
+.imgbox{position:relative}
+.modebar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:0 0 14px;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.modebar b{font-family:Sora,sans-serif}
+section+section{border-top:1px solid var(--line)}
+#vch{margin-top:14px}
 </style>
 </head>
 <body>
@@ -116,10 +121,11 @@ body{background:linear-gradient(160deg,#1c2530 0%,#050608 30%,#000 60%,#0b0f14 1
 
 <section id='estructura'>
 <h2>Estructura de un virus de Enteromix</h2>
-<p>Los cuatro virus son enterovirus y comparten la misma arquitectura. Toca cada parte del esquema (es una versión simplificada).</p>
+<p>Los cuatro virus son enterovirus y comparten la misma arquitectura. Toca los puntos de la imagen o los botones para ver qué hace cada parte.</p>
 <div class='two'>
 <div class="imgvir">
-<img src="Picornaviridae_virion" alt="Estructura de un picornavirus: corte del virión y cápside">
+<div class="imgbox">
+<img src="Picornaviridae_virion.jpg" alt="Estructura de un picornavirus: corte del virión y cápside">
 <button class="dot pt" data-p="capside" style="left:21.7%;top:10%" aria-label="Cápside"></button>
 <button class="dot pt" data-p="capside" style="left:87.9%;top:75.8%" aria-label="Cápside"></button>
 <button class="dot pt" data-p="vp" style="left:38.2%;top:29.8%" aria-label="VP1"></button>
@@ -130,6 +136,7 @@ body{background:linear-gradient(160deg,#1c2530 0%,#050608 30%,#000 60%,#0b0f14 1
 <button class="dot pt" data-p="ires" style="left:15.2%;top:54.3%" aria-label="IRES"></button>
 <button class="dot pt" data-p="vpg" style="left:12.1%;top:66.2%" aria-label="VPg"></button>
 <button class="dot pt" data-p="polya" style="left:29.5%;top:65%" aria-label="Extremo 3′ del ARN"></button>
+</div>
 <p style="font-size:.85rem;opacity:.75">Izquierda: corte del virión. Derecha: cápside. Fuente: ViralZone, SIB Swiss Institute of Bioinformatics (viralzone.expasy.org).</p>
 </div>
 <div><div class='row' id='pch'></div><div class='panel' id='ppn' aria-live='polite'>Elige una parte para ver qué hace.</div></div>
@@ -146,10 +153,11 @@ body{background:linear-gradient(160deg,#1c2530 0%,#050608 30%,#000 60%,#0b0f14 1
 
 <section id='viaje'>
 <h2>Del brazo al tumor: el viaje completo</h2>
-<p>Sigue todo el proceso en 7 etapas: toca el esquema para avanzar, usa los botones o activa «Auto» con narración. Cambia al modo de comparación para ver en qué se diferencia de una vacuna de ARNm, desde la entrada a la célula.</p>
+<p>Sigue el proceso en 7 etapas: toca la animación para avanzar, usa los botones o activa «Auto» con narración.</p>
+<div class="modebar"><b>Qué quieres ver:</b><button id="vm0" class="on">Enteromix (virus con ARN)</button><button id="vm1">Comparar con vacuna de ARNm</button></div>
 <canvas id='vj' width='960' height='480' role='img' aria-label='Animación del viaje del virus desde el brazo hasta el tumor y la lectura de su ARN'></canvas>
 <div class='row' id='vch'></div>
-<div class='row'><button id='vprev'>‹ Anterior</button><button class='main' id='vnext'>Siguiente ›</button><button id='vauto'>▶ Auto</button><button id='vsay'>🔊 Escuchar</button><button id='vm0' class='on'>Enteromix (virus con ARN)</button><button id='vm1'>Comparar con vacuna de ARNm</button></div>
+<div class='row'><button id='vprev'>‹ Anterior</button><button class='main' id='vnext'>Siguiente ›</button><button id='vauto'>▶ Auto</button><button id='vsay'>🔊 Escuchar</button></div>
 <div class='panel' id='vp' aria-live='polite'></div>
 </section>
 
