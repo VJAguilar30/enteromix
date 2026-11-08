@@ -82,6 +82,10 @@ section+section{border-top:1px solid var(--line)}
 .figc{margin:24px auto;max-width:640px;text-align:center}
 .figc img{width:100%;height:auto;display:block;margin:0 auto;border-radius:12px;border:1px solid var(--line)}
 .figc figcaption{font-size:.85rem;opacity:.75;margin-top:8px;text-align:center}
+.quizgrid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.quizbox .q{margin:12px 0}
+.quizbox .q h3{font-size:1rem}
+@media(max-width:860px){.quizgrid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -105,7 +109,7 @@ section+section{border-top:1px solid var(--line)}
 </div>
 <figure class="figc">
 <img src="enteromix.jpg" alt="Viales de Enteromix, solución para inyecciones, con etiqueta en ruso" loading="lazy">
-<figcaption>Viales de Enteromix. La etiqueta, en ruso, dice «Enteromix, solución para inyecciones» y lo describe como un medicamento a base de cepas de enterovirus oncolíticos no patógenos. Es un producto en investigación, no un medicamento aprobado. Fuente: ESCRIBE AQUÍ LA FUENTE.</figcaption>
+<figcaption>Viales de Enteromix. La etiqueta, en ruso, dice «Enteromix, solución para inyecciones» y lo describe como un medicamento a base de cepas de enterovirus oncolíticos no patógenos. Es un producto en investigación, no un medicamento aprobado. Fuente:https://new.nmicr.ru/en/pacientam/metody-diagnostiki-i-lechenija/vaccinotherapy/.</figcaption>
 </figure> 
 </section>
 
@@ -118,7 +122,7 @@ section+section{border-top:1px solid var(--line)}
 </div>
 <figure class="figc">
 <img src="cancercolorectal.jpg" alt="Ilustración 3D del colon con un tumor resaltado" loading="lazy">
-<figcaption>Ilustración 3D del colon con un tumor colorrectal, esquemática. Fuente: ESCRIBE AQUÍ LA FUENTE.</figcaption>
+<figcaption>Ilustración 3D del colon con un tumor colorrectal, esquemática. Fuente: https://www.bbc.com/mundo/articles/cn40m6v8048o.</figcaption>
 </figure>
 <h3>¿Qué contiene: ARN o ARNm?</h3>
 <div class='row' id='cmp'></div>
@@ -258,9 +262,6 @@ section+section{border-top:1px solid var(--line)}
 <div class="row" id="tlb"></div>
 <div class="cards" id="actors"></div>
 <div class="panel" id="atxt" aria-live="polite"></div>
-<h3 style="margin-top:28px">Misión: identifica al reconocedor</h3>
-<div id="mis"></div>
-<div class="panel" id="mscore" aria-live="polite">Responde las 5 preguntas.</div>
 </section>
 
 <section id="virus">
@@ -293,9 +294,19 @@ section+section{border-top:1px solid var(--line)}
 </section>
 
 <section id="quiz">
-<h2>Ponte a prueba</h2>
+<h2>Ponte a prueba lo aprendido</h2>
+<div class="quizgrid">
+<div class="quizbox">
+<h3>Quiz sobre Enteromix</h3>
 <div id="qs"></div>
 <div class="panel" id="score" aria-live="polite">Responde las 5 preguntas.</div>
+</div>
+<div class="quizbox">
+<h3>Misión: identifica al reconocedor</h3>
+<div id="mis"></div>
+<div class="panel" id="mscore" aria-live="polite">Responde las 5 preguntas.</div>
+</div>
+</div>
 </section>
 
 <section id="fuentes">
@@ -435,7 +446,7 @@ $$('#mis button').forEach(x=>x.onclick=()=>{const i=+x.dataset.q,w=x.parentEleme
 const Q=[['Según sus desarrolladores, ¿qué tipo de terapia es Enteromix?',['Vacuna de ARNm','Mezcla de cuatro virus oncolíticos','Anticuerpo monoclonal'],1],['¿En qué fase de investigación está?',['Fase I','Fase III','Ya está aprobada'],0],['¿Qué evalúa principalmente un ensayo de fase I?',['Supervivencia a cinco años','Seguridad, dosis y tolerabilidad','Comparación con la quimioterapia'],1],['¿Qué falta para evaluar de forma independiente sus resultados?',['Más noticias','Datos publicados y revisados por pares','Más pacientes en redes sociales'],1],['¿Qué significa «oncolítico»?',['Que previene infecciones','Que fabrica anticuerpos','Que destruye células tumorales'],2]];
 let sc=0,dn=0;
 $('#qs').innerHTML=Q.map((q,i)=>'<div class="q"><h3>'+(i+1)+'. '+q[0]+'</h3>'+q[1].map((o,j)=>'<button data-q="'+i+'" data-o="'+j+'">'+o+'</button>').join('')+'</div>').join('');
-$$('.q button').forEach(b=>b.onclick=()=>{const i=+b.dataset.q,w=b.parentElement;if(w.dataset.d)return;w.dataset.d=1;const ok=+b.dataset.o===Q[i][2];b.classList.add(ok?'ok':'bad');if(!ok)w.querySelectorAll('button')[Q[i][2]].classList.add('ok');if(ok)sc++;dn++;sfx(ok?660:200);$('#score').textContent=dn<Q.length?'Llevas '+sc+' correctas de '+dn+'.':'Resultado final: '+sc+' de '+Q.length+(sc===Q.length?'. ¡Perfecto!':'. Repasa las secciones y vuelve a intentarlo.')});
+$$('#qs .q button').forEach(b=>b.onclick=()=>{const i=+b.dataset.q,w=b.parentElement;if(w.dataset.d)return;w.dataset.d=1;const ok=+b.dataset.o===Q[i][2];b.classList.add(ok?'ok':'bad');if(!ok)w.querySelectorAll('button')[Q[i][2]].classList.add('ok');if(ok)sc++;dn++;sfx(ok?660:200);$('#score').textContent=dn<Q.length?'Llevas '+sc+' correctas de '+dn+'.':'Resultado final: '+sc+' de '+Q.length+(sc===Q.length?'. ¡Perfecto!':'. Repasa las secciones y vuelve a intentarlo.')});
 </script>
 </body>
 </html>
