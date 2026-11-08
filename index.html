@@ -86,6 +86,22 @@ section+section{border-top:1px solid var(--line)}
 .quizbox .q{margin:12px 0}
 .quizbox .q h3{font-size:1rem}
 @media(max-width:860px){.quizgrid{grid-template-columns:1fr}}
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px;margin-top:20px}
+.member{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-align:center}
+.member img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block}
+.member div{padding:12px 10px 16px}
+.member h3{margin:0 0 4px;font-size:1rem}
+.member p{margin:0 auto;font-size:.88rem;opacity:.85}
+.sidebyside{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:28px;align-items:start}
+.sidefig{margin:0}
+.sidefig img{width:100%;max-width:340px;height:auto;display:block;margin:0 auto;border-radius:12px;border:1px solid var(--line)}
+.sidefig figcaption{font-size:.85rem;opacity:.8;margin-top:8px}
+@media(max-width:860px){.sidebyside{grid-template-columns:1fr}}
+.mythrow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:24px;align-items:start}
+.mythfig{margin:0}
+.mythfig img{width:100%;max-width:300px;height:auto;display:block;margin:0 auto;border-radius:16px;background:#fff;padding:8px}
+.mythlist details:first-child{margin-top:0}
+@media(max-width:860px){.mythrow{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -98,7 +114,7 @@ section+section{border-top:1px solid var(--line)}
 </div>
 <img class="hero-img" src="portada.jpg" alt="Describe la imagen en una frase">
 </header>
-<nav aria-label="Secciones"><a href="#resumen">Resumen</a><a href="#porque">¿Por qué?</a><a href="#que-es">¿Qué es?</a><a href="#estructura">Estructura</a><a href="#mecanismo">Mecanismo</a><a href="#viaje">Viaje completo</a><a href="#inmune">Sistema inmune</a><a href="#virus">Los 4 virus</a><a href="#evidencia">Evidencia</a><a href="#mitos">Mitos y hechos</a><a href="#quiz">Quiz</a><a href="#fuentes">Fuentes</a></nav>
+<nav aria-label="Secciones"><a href="#resumen">Resumen</a><a href="#porque">¿Por qué?</a><a href="#que-es">¿Qué es?</a><a href="#estructura">Estructura</a><a href="#mecanismo">Mecanismo</a><a href="#viaje">Viaje completo</a><a href="#inmune">Sistema inmune</a><a href="#virus">Los 4 virus</a><a href="#evidencia">Evidencia</a><a href="#mitos">Mitos y hechos</a><a href="#quiz">Quiz</a><a href="#fuentes">Fuentes</a></nav><a href="#colaboradores">Colaboradores</a>
 
 <section id="resumen">
 <h2>Lo esencial en 30 segundos</h2>
@@ -182,9 +198,16 @@ section+section{border-top:1px solid var(--line)}
 </section>
 
 <section id="que-es">
-<h2>¿Qué es Enteromix?</h2>
+ <h2>¿Qué es Enteromix?</h2>
+ <div class="sidebyside"><div>
 <p>Enteromix es una inmunoterapia experimental en desarrollo en el Centro Nacional de Investigación Médica de Radiología (Ministerio de Salud de Rusia), junto con el Instituto Engelhardt de Biología Molecular. Según sus desarrolladores, combina cuatro virus vivos que se administran por vía intravenosa y cuyo objetivo inicial fue el cáncer colorrectal.</p>
 <p>Se le llama «vacuna» en los medios, pero no encaja con el sentido habitual del término. Una vacuna clásica entrena al sistema inmune antes de la enfermedad. Aquí los virus actúan directamente sobre el tumor y, de forma secundaria, despiertan la respuesta inmune. Algunos medios también lo describieron como vacuna de ARNm; según los desarrolladores, no usa tecnología de ARNm.</p>
+</div>
+<figure class="sidefig">
+<img src="como.jpg" alt="Ilustración de una jeringa sobre células tumorales con un titular que dice que una nueva vacuna contra el cáncer reduce los tumores hasta 80 % en Rusia" loading="lazy">
+<figcaption>Ejemplo de titular en redes sociales: «Una nueva vacuna contra el cáncer reduce los tumores hasta 80 % en Rusia». Es una ilustración sin valor científico, y esa cifra proviene de declaraciones, no de un estudio publicado. Fuente: https://www.facebook.com/fromquarktoquasars/posts/russias-new-cancer-vaccine-shrunk-tumors-by-up-to-80-in-preclinical-trials-scien/1339616357776293/.</figcaption>
+</figure>
+</div>
 <div class="wrap"><table>
 <tr><th></th><th>Vacuna clásica</th><th>Vacuna de ARNm contra el cáncer</th><th>Virus oncolítico (Enteromix)</th></tr>
 <tr><td>Qué administra</td><td>Antígeno o microbio atenuado</td><td>Instrucciones (ARNm) para producir antígenos tumorales</td><td>Virus vivos capaces de replicarse</td></tr>
@@ -285,12 +308,19 @@ section+section{border-top:1px solid var(--line)}
 </section>
 
 <section id="mitos">
-<h2>Mitos y hechos</h2>
+ <h2>Mitos y hechos</h2>
+ <div class="mythrow">
+<figure class="mythfig">
+<img src="mitos.jpg" alt="Gráfico con las palabras «Facts vs Myths», es decir, hechos contra mitos" loading="lazy">
+</figure>
+<div class="mythlist">
 <details><summary>«Tiene 100 % de eficacia»</summary><p>La cifra proviene de declaraciones oficiales. Una fase I mide sobre todo seguridad, con pocos pacientes y sin grupo control. Una «respuesta inmune del 100 %» tampoco equivale a «curación del 100 %».</p></details>
 <details><summary>«Es una vacuna de ARNm»</summary><p>Según los desarrolladores, no usa ARNm: son virus vivos. La confusión parece venir de mezclarlo con otros programas rusos de vacunas personalizadas de ARNm.</p></details>
 <details><summary>«Ya está aprobada y se puede comprar»</summary><p>Tener autorización en Rusia para hacer un ensayo no es una aprobación de la FDA ni de la EMA. Hoy solo se administra dentro de un estudio clínico.</p></details>
 <details><summary>«Cura el cáncer»</summary><p>No hay evidencia publicada que lo demuestre. Si tú o alguien cercano tiene cáncer, lo apropiado es seguir el tratamiento indicado por su equipo médico.</p></details>
 <details><summary>«Es peligrosa porque usa virus»</summary><p>Los virus oncolíticos se estudian desde hace décadas y varios están aprobados. Aun así, que los datos de seguridad no estén publicados impide evaluarlo de forma independiente.</p></details>
+</div>
+</div>
 </section>
 
 <section id="quiz">
@@ -319,7 +349,30 @@ section+section{border-top:1px solid var(--line)}
 <li><a href="https://zenodo.org/records/17772545" target="_blank" rel="noopener">Análisis de bioseguridad y transparencia (Zenodo, no revisado por pares)</a></li>
 </ul>
 </section>
-<footer>Recurso educativo, no es consejo médico. Información verificada a noviembre de 2026; el estado de la investigación puede cambiar, consulta las fuentes.</footer>
+ 
+<section id="colaboradores">
+<h2>Colaboradores</h2>
+<div class="team">
+<div class="member">
+<img src="integrante1.jpg" alt="Foto de Valeria Aguilar" loading="lazy">
+<div><h3>Valeria Aguilar</h3><p>UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE STO. DOMINGO<br>INGENIERÍA EN BIOTECNOLOGÍA</p></div>
+</div>
+<div class="member">
+<img src="integrante2.jpg" alt="Foto de FLAVIO MAZAMBA" loading="lazy">
+<div><h3>FLAVIO MAZAMBA</h3><p>UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE STO. DOMING<br>INGENIERÍA EN BIOTECNOLOGÍA</p></div>
+</div>
+<div class="member">
+<img src="integrante3.jpg" alt="Foto de Allison García" loading="lazy">
+<div><h3>Allison García</h3><p>UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE STO. DOMING<br>INGENIERÍA EN BIOTECNOLOGÍA</p></div>
+</div>
+<div class="member">
+<img src="integrante4.jpg" alt="Foto de Miguel Morales" loading="lazy">
+<div><h3>Miguel Morales</h3><p>UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE STO. DOMING<br>INGENIERÍA EN BIOTECNOLOGÍA</p></div>
+</div>
+</div>
+</section>
+ <footer>Recurso educativo, no es consejo médico. Información verificada a noviembre de 2026; el estado de la investigación puede cambiar, consulta las fuentes.</footer>
+ 
 
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
