@@ -107,6 +107,21 @@ section+section{border-top:1px solid var(--line)}
 .vfig img{width:100%;height:auto;display:block;margin:0 auto;border-radius:10px;border:1px solid var(--line);background:#fff}
 .vfig figcaption{font-size:.82rem;opacity:.8;margin-top:6px}
 @media(max-width:860px){.vinfo{grid-template-columns:1fr}}
+.tline{position:relative;margin:28px 0;padding:6px 0}
+.tline::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:3px;background:var(--line);transform:translateX(-50%)}
+.ti{position:relative;width:50%;padding:0 34px 26px 0;text-align:right}
+.ti:nth-child(even){margin-left:50%;padding:0 0 26px 34px;text-align:left}
+.ti::after{content:"";position:absolute;top:10px;right:-9px;width:18px;height:18px;border-radius:50%;background:var(--teal);border:4px solid var(--bg)}
+.ti:nth-child(even)::after{right:auto;left:-9px}
+.ti.w::after{background:var(--amber)}
+.td{display:inline-block;font-family:Sora,sans-serif;font-weight:800;font-size:.95rem;color:var(--teal);margin-bottom:6px}
+.ti.w .td{color:var(--amber)}
+.tc{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:12px;padding:12px 16px;text-align:left}
+.ti.w .tc{border-left-color:var(--amber)}
+.tc p{margin:0;font-size:.95rem}
+.tleg{display:flex;gap:18px;flex-wrap:wrap;font-size:.88rem;opacity:.85}
+.tleg i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:middle}
+@media(max-width:760px){.tline::before{left:12px}.ti,.ti:nth-child(even){width:100%;margin-left:0;padding:0 0 22px 40px;text-align:left}.ti::after,.ti:nth-child(even)::after{left:3px;right:auto}}
 </style>
 </head>
 <body>
@@ -145,7 +160,7 @@ section+section{border-top:1px solid var(--line)}
 <img src="cancercolorectal.jpg" alt="Ilustración 3D del colon con un tumor resaltado" loading="lazy">
 <figcaption>Ilustración 3D del colon con un tumor colorrectal, esquemática. Fuente: https://www.bbc.com/mundo/articles/cn40m6v8048o.</figcaption>
 </figure>
-<h3>¿Qué contiene: ARN o ARNm?</h3>
+<h3>¿ARN viral replicativo de Enteromix o ARNm mensajero convencional?</h3>
 <div class='row' id='cmp'></div>
 <div class='panel' id='cmpp' aria-live='polite'></div>
  <div class="cmpsvg">
@@ -301,7 +316,7 @@ section+section{border-top:1px solid var(--line)}
 
 <section id="evidencia">
 <h2>Qué evidencia existe</h2>
-<ul class="tl">
+<ul class="tl"hidden>
 <li><b>Nov. 2024:</b> registro del ensayo EM-I-2024 en el sistema ruso de ensayos clínicos.</li>
 <li><b>Dic. 2024:</b> el centro desarrollador anuncia el inicio del reclutamiento de pacientes.</li>
 <li><b>Sept. 2025:</b> se viralizan titulares de «100 % de eficacia». Snopes, AFP y otros verificadores los califican de exagerados o engañosos.</li>
@@ -309,7 +324,16 @@ section+section{border-top:1px solid var(--line)}
 <li><b>May. 2026:</b> aparece en ClinicalTrials.gov un estudio de fase I (NCT07584668), abierto, de un solo centro, con diseño de escalada de dosis 3+3, para evaluar seguridad, tolerabilidad y farmacocinética en tumores sólidos avanzados.</li>
 <li class="w"><b>Pendiente:</b> la fecha estimada de finalización primaria que se reporta es diciembre de 2026, y después harían falta fases II y III con grupo de comparación.</li>
 </ul>
-<div class="card w"><h3>Por qué importa la revisión por pares</h3>Sin datos publicados, otros científicos no pueden evaluar los métodos ni repetir los resultados. Tampoco se pueden comprobar la identidad genética de los virus, su estabilidad ni su eliminación por el organismo, que los reguladores exigen para virus replicantes.</div>
+<div class="tline">
+<div class="ti"><span class="td">Nov. 2024</span><div class="tc"><p>Registro del ensayo EM-I-2024 en el sistema ruso de ensayos clínicos.</p></div></div>
+<div class="ti"><span class="td">Dic. 2024</span><div class="tc"><p>El centro desarrollador anuncia el inicio del reclutamiento de pacientes.</p></div></div>
+<div class="ti w"><span class="td">Sept. 2025</span><div class="tc"><p>Se viralizan titulares de «100 % de eficacia». Snopes, AFP y otros verificadores los califican de exagerados o engañosos.</p></div></div>
+<div class="ti w"><span class="td">Cifras circulantes</span><div class="tc"><p>Reducción tumoral de 60–80 % y 48 pacientes. Provienen de declaraciones y notas de prensa, no de un artículo revisado por pares, y los medios las atribuyen a veces a estudios preclínicos y otras a la fase I.</p></div></div>
+<div class="ti"><span class="td">May. 2026</span><div class="tc"><p>Aparece en ClinicalTrials.gov un estudio de fase I (NCT07584668), abierto, de un solo centro, con diseño de escalada de dosis 3+3, para evaluar seguridad, tolerabilidad y farmacocinética en tumores sólidos avanzados.</p></div></div>
+<div class="ti w"><span class="td">Pendiente</span><div class="tc"><p>La fecha estimada de finalización primaria que se reporta es diciembre de 2026. Después harían falta fases II y III con grupo de comparación.</p></div></div>
+</div>
+<p class="tleg"><span><i style="background:var(--teal)"></i>Hecho registrado</span><span><i style="background:var(--amber)"></i>Advertencia o dato pendiente</span></p>
+ <div class="card w"><h3>Por qué importa la revisión por pares</h3>Sin datos publicados, otros científicos no pueden evaluar los métodos ni repetir los resultados. Tampoco se pueden comprobar la identidad genética de los virus, su estabilidad ni su eliminación por el organismo, que los reguladores exigen para virus replicantes.</div>
 </section>
 
 <section id="mitos">
@@ -329,7 +353,7 @@ section+section{border-top:1px solid var(--line)}
 </section>
 
 <section id="quiz">
-<h2>Ponte a prueba lo aprendido</h2>
+<h2>¿Qué tanto aprendiste sobre Enteromix?</h2>
 <div class="quizgrid">
 <div class="quizbox">
 <h3>Quiz sobre Enteromix</h3>
